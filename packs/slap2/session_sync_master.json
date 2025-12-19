@@ -1,0 +1,13 @@
+{
+  "$schema": "../../schemas/launcher/1.0.0.json",
+  "launcher_version": ">=0.2,<0.3",
+  "launcher": "base",
+
+  "subject_id": "mouse123",
+  "user_id": "tester",
+
+  "session_sync_role": "master",
+  "session_sync_port": 47001,
+  "session_sync_expected_slaves": 1,
+  "session_sync_bind_host": "127.0.0.1"
+}

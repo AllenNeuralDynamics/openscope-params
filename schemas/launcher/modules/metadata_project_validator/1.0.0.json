@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/schemas/launcher/modules/metadata_project_validator/1.0.0.json",
+  "title": "Module Parameters: metadata_project_validator",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "metadata_project_name": {"type": "string"},
+    "metadata_project_prompt": {"type": "string"},
+    "project_name": {"type": "string"},
+    "projects": {"type": "array", "items": {"type": "string"}}
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/schemas/launcher/modules/stimulus_table_predictive_processing/1.0.0.json",
+  "title": "Module Parameters: stimulus_table_predictive_processing",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {}
+}

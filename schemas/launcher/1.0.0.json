@@ -1,0 +1,302 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/schemas/launcher/1.0.0.json",
+  "title": "OpenScope Experimental Launcher Params (Base)",
+  "type": "object",
+  "additionalProperties": true,
+  "$defs": {
+    "pipeline_entry": {
+      "oneOf": [
+        {"type": "string"},
+        {"$ref": "#/$defs/pipeline_entry_object"},
+        {"$ref": "#/$defs/legacy_repo_module_entry"}
+      ]
+    },
+    "pipeline_entry_object": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "module_type": {"type": "string", "enum": ["launcher_module", "script_module"]},
+        "module_path": {"type": "string"},
+        "module_parameters": {"type": "object", "additionalProperties": true}
+      },
+      "required": ["module_path"],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "module_type": {"const": "launcher_module"},
+              "module_path": {"const": "metadata_subject_fetch"}
+            }
+          },
+          "then": {
+            "properties": {
+              "module_parameters": {"$ref": "modules/metadata_subject_fetch/1.0.0.json"}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "module_type": {"const": "launcher_module"},
+              "module_path": {"const": "metadata_procedures_fetch"}
+            }
+          },
+          "then": {
+            "properties": {
+              "module_parameters": {"$ref": "modules/metadata_procedures_fetch/1.0.0.json"}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "module_type": {"const": "launcher_module"},
+              "module_path": {"const": "metadata_project_validator"}
+            }
+          },
+          "then": {
+            "properties": {
+              "module_parameters": {"$ref": "modules/metadata_project_validator/1.0.0.json"}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "module_type": {"const": "launcher_module"},
+              "module_path": {"const": "metadata_protocol_validator"}
+            }
+          },
+          "then": {
+            "properties": {
+              "module_parameters": {"$ref": "modules/metadata_protocol_validator/1.0.0.json"}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "module_type": {"const": "launcher_module"},
+              "module_path": {"const": "experiment_notes_editor"}
+            }
+          },
+          "then": {
+            "properties": {
+              "module_parameters": {"$ref": "modules/experiment_notes_editor/1.0.0.json"}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "module_type": {"const": "launcher_module"},
+              "module_path": {"const": "experiment_notes_finalize"}
+            }
+          },
+          "then": {
+            "properties": {
+              "module_parameters": {"$ref": "modules/experiment_notes_finalize/1.0.0.json"}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "module_type": {"const": "launcher_module"},
+              "module_path": {"const": "zmq_ready_publisher"}
+            }
+          },
+          "then": {
+            "properties": {
+              "module_parameters": {"$ref": "modules/zmq_ready_publisher/1.0.0.json"}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "module_type": {"const": "launcher_module"},
+              "module_path": {"const": "zmq_ready_waiter"}
+            }
+          },
+          "then": {
+            "properties": {
+              "module_parameters": {"$ref": "modules/zmq_ready_waiter/1.0.0.json"}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "module_type": {"const": "launcher_module"},
+              "module_path": {"const": "session_archiver"}
+            }
+          },
+          "then": {
+            "properties": {
+              "module_parameters": {"$ref": "modules/session_archiver/1.0.0.json"}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "module_type": {"const": "launcher_module"},
+              "module_path": {"const": "session_creator"}
+            }
+          },
+          "then": {
+            "properties": {
+              "module_parameters": {"$ref": "modules/session_creator/1.0.0.json"}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "module_type": {"const": "launcher_module"},
+              "module_path": {"const": "stimulus_table_predictive_processing"}
+            }
+          },
+          "then": {
+            "properties": {
+              "module_parameters": {"$ref": "modules/stimulus_table_predictive_processing/1.0.0.json"}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "module_type": {"const": "launcher_module"},
+              "module_path": {"const": "session_enhancer_bonsai"}
+            }
+          },
+          "then": {
+            "properties": {
+              "module_parameters": {"$ref": "modules/session_enhancer_bonsai/1.0.0.json"}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "module_type": {"const": "launcher_module"},
+              "module_path": {"const": "session_enhancer_predictive_processing"}
+            }
+          },
+          "then": {
+            "properties": {
+              "module_parameters": {"$ref": "modules/session_enhancer_predictive_processing/1.0.0.json"}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "module_type": {"const": "launcher_module"},
+              "module_path": {"const": "session_enhancer_slap2"}
+            }
+          },
+          "then": {
+            "properties": {
+              "module_parameters": {"$ref": "modules/session_enhancer_slap2/1.0.0.json"}
+            }
+          }
+        }
+      ]
+    },
+    "legacy_repo_module_entry": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "type": {"const": "repo_module"},
+        "repo_relative_path": {"type": "string"},
+        "function": {"type": "string"},
+        "kwargs": {"type": "object", "additionalProperties": true}
+      },
+      "required": ["type", "repo_relative_path"]
+    }
+  },
+  "properties": {
+    "$schema": {"type": "string"},
+    "launcher_version": {"type": "string"},
+    "launcher": {"type": "string", "enum": ["base", "bonsai", "python", "matlab"]},
+
+    "subject_id": {"type": ["string", "integer"]},
+    "user_id": {"type": "string"},
+
+    "output_root_folder": {"type": "string"},
+    "output_session_folder": {"type": "string"},
+    "session_uuid": {"type": "string"},
+
+    "rig_id": {"type": "string"},
+    "rig_config_path": {"type": "string"},
+
+    "repository_url": {"type": "string"},
+    "repository_commit_hash": {"type": "string"},
+    "local_repository_path": {"type": "string"},
+
+    "script_path": {"type": "string"},
+    "script_parameters": {"type": "object", "additionalProperties": true},
+
+    "pre_acquisition_pipeline": {"type": "array", "items": {"$ref": "#/$defs/pipeline_entry"}},
+    "post_acquisition_pipeline": {"type": "array", "items": {"$ref": "#/$defs/pipeline_entry"}},
+
+    "metadata_service_base_url": {"type": "string"},
+    "metadata_service_timeout": {"type": "number", "minimum": 0},
+    "metadata_subject_id": {"type": ["string", "integer"]},
+    "metadata_mouse_id": {"type": ["string", "integer"]},
+    "metadata_procedures_timeout": {"type": "number", "minimum": 0},
+    "metadata_project_name": {"type": "string"},
+    "metadata_project_prompt": {"type": "string"},
+    "metadata_protocol_name": {"type": "string"},
+    "metadata_protocol_prompt": {"type": "string"},
+
+    "experiment_notes_filename": {"type": "string"},
+    "experiment_notes_encoding": {"type": "string"},
+    "experiment_notes_launch_editor": {"type": "boolean"},
+    "experiment_notes_editor_command": {"oneOf": [{"type": "string"}, {"type": "array", "items": {"type": "string"}}]},
+    "experiment_notes_editor_args": {"oneOf": [{"type": "string"}, {"type": "array", "items": {"type": "string"}}]},
+    "experiment_notes_preview": {"type": "boolean"},
+    "experiment_notes_preview_limit": {"type": "integer", "minimum": 0},
+    "experiment_notes_confirm_prompt": {"type": "string"},
+
+    "zmq_ready_publisher_wait": {"type": "number", "minimum": 0},
+    "zmq_ready_waiter_timeout": {"type": "number", "minimum": 0},
+
+    "network_dir": {"type": "string"},
+    "backup_dir": {"type": "string"},
+    "manifest_path": {"type": "string"},
+    "include_patterns": {"oneOf": [{"type": "string"}, {"type": "array", "items": {"type": "string"}}]},
+    "exclude_patterns": {"oneOf": [{"type": "string"}, {"type": "array", "items": {"type": "string"}}]},
+    "checksum_algo": {"type": "string"},
+    "dry_run": {"type": "boolean"},
+    "skip_completed": {"type": "boolean"},
+    "max_retries": {"type": "integer", "minimum": 0},
+    "remove_empty_dirs": {"type": "boolean"},
+
+    "session_type": {"type": "string", "enum": ["Parent", "Branch"]},
+    "targeted_structure": {"type": "string"},
+    "fov_coordinate_ml": {"type": "number"},
+    "fov_coordinate_ap": {"type": "number"},
+    "fov_coordinate_unit": {"type": "string"},
+    "fov_reference": {"type": "string"},
+    "magnification": {"type": "string"},
+    "fov_scale_factor": {"type": "number"},
+
+    "session_sync_role": {"type": "string", "enum": ["master", "slave"]},
+    "session_sync_port": {"type": "integer", "minimum": 1, "maximum": 65535},
+    "session_sync_expected_slaves": {"type": "integer", "minimum": 0},
+    "session_sync_bind_host": {"type": "string"},
+    "session_sync_master_host": {"type": "string"},
+    "session_sync_node_name": {"type": "string"},
+    "session_sync_timeout_sec": {"type": "number", "minimum": 0},
+    "session_sync_ack_timeout_sec": {"type": "number", "minimum": 0},
+    "session_sync_retry_delay_sec": {"type": "number", "minimum": 0},
+    "session_sync_key_param": {"type": "string"},
+    "session_sync_session_key": {}
+  },
+  "required": ["subject_id", "user_id"],
+  "$comment": "Permissive schema: additionalProperties=true to avoid coupling to module-specific keys."
+}

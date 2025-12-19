@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/launcher/1.0.0.json",
+  "launcher_version": ">=0.2,<0.3",
+  "launcher": "matlab",
+
+  "subject_id": "test_mouse_local",
+  "user_id": "local_operator",
+
+  "output_root_folder": "C:/OpenScopeLocalSessions",
+  "matlab_engine_name": "slap2_launcher",
+  "matlab_entrypoint": "slap2_launcher",
+
+  "script_parameters": {
+    "rig_description_path": "C:/RigConfig/currentRigDescription.json"
+  },
+
+  "pre_acquisition_pipeline": [],
+  "post_acquisition_pipeline": [],
+
+  "description": "Example configuration for exercising the MATLAB shared-engine launcher locally."
+}

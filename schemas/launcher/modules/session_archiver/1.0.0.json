@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/schemas/launcher/modules/session_archiver/1.0.0.json",
+  "title": "Module Parameters: session_archiver",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "session_dir": {"type": "string"},
+    "network_dir": {"type": "string"},
+    "backup_dir": {"type": "string"},
+    "manifest_path": {"type": "string"},
+    "include_patterns": {
+      "oneOf": [
+        {"type": "string"},
+        {"type": "array", "items": {"type": "string"}}
+      ]
+    },
+    "exclude_patterns": {
+      "oneOf": [
+        {"type": "string"},
+        {"type": "array", "items": {"type": "string"}}
+      ]
+    },
+    "checksum_algo": {"type": "string"},
+    "dry_run": {"type": "boolean"},
+    "skip_completed": {"type": "boolean"},
+    "max_retries": {"type": "integer", "minimum": 0},
+    "remove_empty_dirs": {"type": "boolean"}
+  }
+}

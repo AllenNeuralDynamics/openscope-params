@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/schemas/launcher/modules/metadata_protocol_validator/1.0.0.json",
+  "title": "Module Parameters: metadata_protocol_validator",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "metadata_protocol_name": {"type": "string"},
+    "metadata_protocol_prompt": {"type": "string"},
+    "protocol_name": {"type": "string"},
+    "protocol_id": {"oneOf": [{"type": "string"}, {"type": "array", "items": {"type": ["string", "integer"]}}]}
+  }
+}

@@ -1,0 +1,23 @@
+site_name: OpenScope Params
+site_description: Parameter packs and JSON Schemas for OpenScope launchers.
+repo_url: https://github.com/AllenNeuralDynamics/openscope-params
+repo_name: AllenNeuralDynamics/openscope-params
+
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - Quickstart: quickstart.md
+  - Packs:
+      - Overview: packs.md
+      - Reference (generated): reference/packs.md
+  - Schemas:
+      - Overview: schemas.md
+      - Reference (generated): reference/schemas.md
+  - Tooling: tooling.md
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true

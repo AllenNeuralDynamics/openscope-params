@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/schemas/launcher/modules/session_creator/1.0.0.json",
+  "title": "Module Parameters: session_creator",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "force": {"type": "boolean"}
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/schemas/launcher/modules/session_enhancer_slap2/1.0.0.json",
+  "title": "Module Parameters: session_enhancer_slap2",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "session_type": {"type": "string", "enum": ["Parent", "Branch"]},
+    "targeted_structure": {"type": "string"},
+    "fov_coordinate_ml": {"type": "number"},
+    "fov_coordinate_ap": {"type": "number"},
+    "fov_coordinate_unit": {"type": "string"},
+    "fov_reference": {"type": "string"},
+    "magnification": {"type": "string"},
+    "fov_scale_factor": {"type": "number"}
+  }
+}

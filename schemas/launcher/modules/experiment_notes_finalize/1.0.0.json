@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/schemas/launcher/modules/experiment_notes_finalize/1.0.0.json",
+  "title": "Module Parameters: experiment_notes_finalize",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "experiment_notes_filename": {"type": "string"},
+    "experiment_notes_encoding": {"type": "string"},
+    "experiment_notes_preview": {"type": "boolean"},
+    "experiment_notes_preview_limit": {"type": "integer", "minimum": 0},
+    "experiment_notes_confirm_prompt": {"type": "string"}
+  }
+}
