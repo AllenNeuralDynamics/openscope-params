@@ -2,10 +2,11 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/openscope-params/schemas/launcher/modules/metadata_subject_fetch/1.0.0.json",
   "title": "Module Parameters: metadata_subject_fetch",
+  "description": "Fetches subject metadata from the configured metadata service and writes results into the session folder for downstream modules.",
   "type": "object",
   "additionalProperties": true,
   "properties": {
-    "metadata_subject_id": {"type": ["string", "integer"]},
-    "metadata_mouse_id": {"type": ["string", "integer"]}
+    "metadata_subject_id": {"type": ["string", "integer"], "description": "Subject identifier to query. If omitted, modules often use the top-level subject_id."},
+    "metadata_mouse_id": {"type": ["string", "integer"], "description": "Optional separate mouse identifier if your metadata system distinguishes it from subject_id."}
   }
 }
