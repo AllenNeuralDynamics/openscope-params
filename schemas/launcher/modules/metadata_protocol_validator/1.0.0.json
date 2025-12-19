@@ -2,12 +2,13 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/openscope-params/schemas/launcher/modules/metadata_protocol_validator/1.0.0.json",
   "title": "Module Parameters: metadata_protocol_validator",
+  "description": "Validates that the protocol associated with the session/subject matches expectations (by name and/or protocol id). May prompt the operator on mismatch.",
   "type": "object",
   "additionalProperties": true,
   "properties": {
-    "metadata_protocol_name": {"type": "string"},
-    "metadata_protocol_prompt": {"type": "string"},
-    "protocol_name": {"type": "string"},
-    "protocol_id": {"oneOf": [{"type": "string"}, {"type": "array", "items": {"type": ["string", "integer"]}}]}
+    "metadata_protocol_name": {"type": "string", "description": "Expected protocol name.", "examples": ["predictive_processing"]},
+    "metadata_protocol_prompt": {"type": "string", "description": "Prompt shown to the operator if protocol validation needs confirmation (e.g. mismatch)."},
+    "protocol_name": {"type": "string", "description": "Observed protocol name from metadata (for advanced/legacy configurations)."},
+    "protocol_id": {"oneOf": [{"type": "string"}, {"type": "array", "items": {"type": ["string", "integer"]}}], "description": "Expected protocol identifier(s). Some metadata systems use numeric ids; others use strings."}
   }
 }

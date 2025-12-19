@@ -2,16 +2,17 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/openscope-params/schemas/launcher/modules/session_enhancer_slap2/1.0.0.json",
   "title": "Module Parameters: session_enhancer_slap2",
+  "description": "Post-acquisition enhancement for SLAP2 sessions. Adds standardized session metadata such as FOV location, magnification, and session type to downstream metadata products.",
   "type": "object",
   "additionalProperties": true,
   "properties": {
-    "session_type": {"type": "string", "enum": ["Parent", "Branch"]},
-    "targeted_structure": {"type": "string"},
-    "fov_coordinate_ml": {"type": "number"},
-    "fov_coordinate_ap": {"type": "number"},
-    "fov_coordinate_unit": {"type": "string"},
-    "fov_reference": {"type": "string"},
-    "magnification": {"type": "string"},
-    "fov_scale_factor": {"type": "number"}
+    "session_type": {"type": "string", "enum": ["Parent", "Branch"], "description": "Whether this session is a parent (primary) or a branch (child/follow-up) session."},
+    "targeted_structure": {"type": "string", "description": "Brain structure targeted by the experiment (free-text)."},
+    "fov_coordinate_ml": {"type": "number", "description": "Field-of-view mediolateral coordinate (numeric)."},
+    "fov_coordinate_ap": {"type": "number", "description": "Field-of-view anteroposterior coordinate (numeric)."},
+    "fov_coordinate_unit": {"type": "string", "description": "Units for FOV coordinates (e.g. 'mm' or 'um').", "examples": ["mm"]},
+    "fov_reference": {"type": "string", "description": "Reference origin used for coordinates (free-text).", "examples": ["bregma"]},
+    "magnification": {"type": "string", "description": "Objective or system magnification descriptor.", "examples": ["16x"]},
+    "fov_scale_factor": {"type": "number", "description": "Scale factor applied to convert coordinates/pixels to physical units (module-specific)."}
   }
 }

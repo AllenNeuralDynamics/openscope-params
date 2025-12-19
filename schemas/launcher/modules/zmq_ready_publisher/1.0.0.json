@@ -2,9 +2,10 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/openscope-params/schemas/launcher/modules/zmq_ready_publisher/1.0.0.json",
   "title": "Module Parameters: zmq_ready_publisher",
+  "description": "Publishes a ZMQ 'ready' message to signal downstream components that acquisition can proceed.",
   "type": "object",
   "additionalProperties": true,
   "properties": {
-    "zmq_ready_publisher_wait": {"type": "number", "minimum": 0}
+    "zmq_ready_publisher_wait": {"type": "number", "minimum": 0, "description": "Seconds to wait before publishing (gives subscribers time to connect).", "default": 0}
   }
 }
