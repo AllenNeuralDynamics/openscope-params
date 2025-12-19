@@ -3,6 +3,8 @@
   "launcher_version": ">=0.2,<0.3",
   "launcher": "base",
 
+  "description": "Session synchronization (master role) example for coordinating multi-process acquisition.",
+
   "subject_id": "mouse123",
   "user_id": "tester",
 

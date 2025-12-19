@@ -3,6 +3,8 @@
   "launcher_version": ">=0.2,<0.3",
   "launcher": "bonsai",
 
+  "description": "Predictive processing Bonsai example: generates a stimulus CSV pre-acquisition and runs a Bonsai workflow using rig parameters.",
+
   "subject_id": "mouse123",
   "user_id": "tester",
 

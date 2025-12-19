@@ -3,6 +3,8 @@
   "launcher_version": ">=0.2,<0.3",
   "launcher": "bonsai",
 
+  "description": "Predictive processing example with post-acquisition archiving (runs session_archiver after acquisition).",
+
   "subject_id": "mouse123",
   "user_id": "tester",
 
