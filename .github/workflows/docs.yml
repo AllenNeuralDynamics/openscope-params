@@ -62,6 +62,10 @@ jobs:
           python ./tooling/validate.py
 
       - name: Generate reference docs
+        env:
+          OPENSCOPE_PARAMS_REPO_URL: https://github.com/${{ github.repository }}
+          OPENSCOPE_PARAMS_REPO_REF: ${{ github.ref_name }}
+          OPENSCOPE_PARAMS_REPO_SUBDIR: openscope-params
         run: |
           python ./tooling/build_docs.py
 

@@ -55,8 +55,11 @@ def _posix_rel(path: Path, base: Path) -> str:
     return path.relative_to(base).as_posix()
 
 
-def _github_file_url(repo_url: str, rel_path_posix: str, ref: str = "main") -> str:
+def _github_file_url(*, repo_url: str, rel_path_posix: str, ref: str = "main", repo_subdir: str | None = None) -> str:
     repo_url = repo_url.rstrip("/")
+    if repo_subdir:
+        repo_subdir = repo_subdir.strip("/")
+        return f"{repo_url}/blob/{ref}/{repo_subdir}/{rel_path_posix}"
     return f"{repo_url}/blob/{ref}/{rel_path_posix}"
 
 
@@ -109,7 +112,7 @@ def _read_pack_description(pack_dir: Path) -> str | None:
     return " ".join(paragraph).strip() or None
 
 
-def _render_packs_md(*, packs_dir: Path, repo_url: str, repo_ref: str) -> str:
+def _render_packs_md(*, packs_dir: Path, repo_url: str, repo_ref: str, repo_subdir: str | None) -> str:
     # Build per-pack sections (packs/<pack>/*.json).
     pack_docs: list[PackDoc] = []
     for pack_dir in sorted(p for p in packs_dir.iterdir() if p.is_dir() and not p.name.startswith(".")):
@@ -140,7 +143,7 @@ def _render_packs_md(*, packs_dir: Path, repo_url: str, repo_ref: str) -> str:
     for pack in pack_docs:
         lines.append(f"## {pack.pack_name}")
         lines.append("")
-        pack_dir_url = _github_file_url(repo_url, pack.pack_rel_dir_posix, ref=repo_ref)
+        pack_dir_url = _github_file_url(repo_url=repo_url, rel_path_posix=pack.pack_rel_dir_posix, ref=repo_ref, repo_subdir=repo_subdir)
         lines.append(f"Pack directory: [`{pack.pack_rel_dir_posix}`]({pack_dir_url})")
         if pack.pack_description:
             lines.append("")
@@ -148,7 +151,7 @@ def _render_packs_md(*, packs_dir: Path, repo_url: str, repo_ref: str) -> str:
         lines.append("")
 
         for item in pack.items:
-            file_url = _github_file_url(repo_url, item.rel_path_posix, ref=repo_ref)
+            file_url = _github_file_url(repo_url=repo_url, rel_path_posix=item.rel_path_posix, ref=repo_ref, repo_subdir=repo_subdir)
             display_name = item.rel_path_posix.split("/", 2)[-1]
             desc = f" — {item.description}" if item.description else ""
             lines.append(f"- [`{display_name}`]({file_url}){desc}")
@@ -169,6 +172,7 @@ def _render_items_md(
     items: list[DocItem],
     repo_url: str,
     repo_ref: str,
+    repo_subdir: str | None,
 ) -> str:
     grouped = _group_by_first_segment(items)
 
@@ -180,7 +184,7 @@ def _render_items_md(
         lines.append(f"## {group_name}")
         lines.append("")
         for item in grouped[group_name]:
-            file_url = _github_file_url(repo_url, item.rel_path_posix, ref=repo_ref)
+            file_url = _github_file_url(repo_url=repo_url, rel_path_posix=item.rel_path_posix, ref=repo_ref, repo_subdir=repo_subdir)
             desc = f" — {item.description}" if item.description else ""
             lines.append(f"- [`{item.rel_path_posix}`]({file_url}){desc}")
         lines.append("")
@@ -238,10 +242,15 @@ def _generate_schema_html(schema_files: list[Path]) -> bool:
 
 
 def main() -> int:
-    repo_url = os.environ.get("OPENSCOPE_PARAMS_REPO_URL", "https://github.com/AllenNeuralDynamics/openscope-params")
+    repo_url = os.environ.get(
+        "OPENSCOPE_PARAMS_REPO_URL",
+        "https://github.com/AllenNeuralDynamics/openscope-community-predictive-processing",
+    )
     repo_ref = os.environ.get("OPENSCOPE_PARAMS_REPO_REF", "main")
+    repo_subdir_env = os.environ.get("OPENSCOPE_PARAMS_REPO_SUBDIR", "openscope-params")
+    repo_subdir = repo_subdir_env.strip("/") if repo_subdir_env else None
 
-    packs_md = _render_packs_md(packs_dir=PACKS_DIR, repo_url=repo_url, repo_ref=repo_ref)
+    packs_md = _render_packs_md(packs_dir=PACKS_DIR, repo_url=repo_url, repo_ref=repo_ref, repo_subdir=repo_subdir)
 
     schemas: list[DocItem] = []
     schema_paths = sorted(TOOLING_DIR.glob("*.schema.json"))
@@ -252,7 +261,13 @@ def main() -> int:
 
     DOCS_REF_DIR.mkdir(parents=True, exist_ok=True)
 
-    schemas_md = _render_items_md(heading="Schemas (reference)", items=schemas, repo_url=repo_url, repo_ref=repo_ref)
+    schemas_md = _render_items_md(
+        heading="Schemas (reference)",
+        items=schemas,
+        repo_url=repo_url,
+        repo_ref=repo_ref,
+        repo_subdir=repo_subdir,
+    )
 
     packs_md_path = DOCS_REF_DIR / "packs.md"
     schemas_md_path = DOCS_REF_DIR / "schemas.md"
