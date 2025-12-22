@@ -1,0 +1,61 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "experiment_notes_filename": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Relative path (inside the session folder) for the notes file.",
+      "examples": [
+        "notes/experiment_notes.txt"
+      ],
+      "title": "Experiment Notes Filename"
+    },
+    "experiment_notes_encoding": {
+      "default": "utf-8",
+      "description": "Text encoding used when reading the notes file.",
+      "title": "Experiment Notes Encoding",
+      "type": "string"
+    },
+    "experiment_notes_preview": {
+      "default": false,
+      "description": "If true, print a preview of notes content to the console.",
+      "title": "Experiment Notes Preview",
+      "type": "boolean"
+    },
+    "experiment_notes_preview_limit": {
+      "default": 2000,
+      "description": "Limit for preview output (module-specific).",
+      "minimum": 0,
+      "title": "Experiment Notes Preview Limit",
+      "type": "integer"
+    },
+    "experiment_notes_confirm_prompt": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Prompt shown to the operator to confirm notes are complete.",
+      "examples": [
+        "Confirm experiment notes are saved; press Enter to finish."
+      ],
+      "title": "Experiment Notes Confirm Prompt"
+    }
+  },
+  "title": "Module Parameters: experiment_notes_finalize (Pydantic)",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/tooling/model_experiment_notes_finalize.schema.json",
+  "description": "Generated from Pydantic model model_experiment_notes_finalize.py:Parameters. Module parameters schema generated from Pydantic."
+}

@@ -1,0 +1,407 @@
+{
+  "$defs": {
+    "LegacyRepoModuleEntry": {
+      "additionalProperties": true,
+      "properties": {
+        "type": {
+          "const": "repo_module",
+          "default": "repo_module",
+          "description": "Legacy pipeline entry type.",
+          "title": "Type",
+          "type": "string"
+        },
+        "repo_relative_path": {
+          "description": "Repo-relative path containing the callable.",
+          "title": "Repo Relative Path",
+          "type": "string"
+        },
+        "function": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Function name to invoke.",
+          "title": "Function"
+        },
+        "kwargs": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Keyword arguments passed to the function.",
+          "title": "Kwargs"
+        }
+      },
+      "required": [
+        "repo_relative_path"
+      ],
+      "title": "LegacyRepoModuleEntry",
+      "type": "object"
+    },
+    "PipelineEntryObject": {
+      "additionalProperties": true,
+      "properties": {
+        "module_type": {
+          "anyOf": [
+            {
+              "enum": [
+                "launcher_module",
+                "script_module"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "How to execute this pipeline entry.",
+          "title": "Module Type"
+        },
+        "module_path": {
+          "description": "Identifier for module to run (launcher_module name or script path).",
+          "title": "Module Path",
+          "type": "string"
+        },
+        "module_parameters": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "$ref": "#/$defs/ScriptModuleParameters"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Arguments passed to the module.",
+          "title": "Module Parameters"
+        }
+      },
+      "required": [
+        "module_path"
+      ],
+      "title": "PipelineEntryObject",
+      "type": "object"
+    },
+    "ScriptModuleParameters": {
+      "additionalProperties": true,
+      "properties": {
+        "function": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Function name to invoke from the script module.",
+          "title": "Function"
+        },
+        "function_args": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Arguments passed to the script function.",
+          "title": "Function Args"
+        }
+      },
+      "title": "ScriptModuleParameters",
+      "type": "object"
+    }
+  },
+  "additionalProperties": true,
+  "properties": {
+    "$schema": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "JSON Schema identifier (relative path within repo).",
+      "title": "$Schema"
+    },
+    "launcher_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Launcher Version"
+    },
+    "launcher": {
+      "anyOf": [
+        {
+          "enum": [
+            "base",
+            "bonsai",
+            "python",
+            "matlab"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Launcher"
+    },
+    "subject_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "integer"
+        }
+      ],
+      "description": "Subject identifier used for naming and metadata lookup.",
+      "title": "Subject Id"
+    },
+    "user_id": {
+      "description": "Operator/user identifier recorded alongside the session.",
+      "title": "User Id",
+      "type": "string"
+    },
+    "operator": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Optional operator identifier object.",
+      "title": "Operator"
+    },
+    "experiment_code": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Optional experiment code identifier object.",
+      "title": "Experiment Code"
+    },
+    "output_root_folder": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Output Root Folder"
+    },
+    "output_session_folder": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Output Session Folder"
+    },
+    "session_uuid": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Session Uuid"
+    },
+    "rig_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Rig Id"
+    },
+    "rig_config_path": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Rig Config Path"
+    },
+    "repository_url": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Repository Url"
+    },
+    "repository_commit_hash": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Repository Commit Hash"
+    },
+    "local_repository_path": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Local Repository Path"
+    },
+    "script_path": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Script Path"
+    },
+    "script_parameters": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Script Parameters"
+    },
+    "pre_acquisition_pipeline": {
+      "anyOf": [
+        {
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/$defs/PipelineEntryObject"
+              },
+              {
+                "$ref": "#/$defs/LegacyRepoModuleEntry"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Pre Acquisition Pipeline"
+    },
+    "post_acquisition_pipeline": {
+      "anyOf": [
+        {
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/$defs/PipelineEntryObject"
+              },
+              {
+                "$ref": "#/$defs/LegacyRepoModuleEntry"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Post Acquisition Pipeline"
+    }
+  },
+  "required": [
+    "subject_id",
+    "user_id"
+  ],
+  "title": "OpenScope Experimental Launcher Params (Pydantic)",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/tooling/model_launcher.schema.json",
+  "description": "Top-level schema for OpenScope launcher parameter files, generated from Pydantic. This schema is intentionally permissive (additionalProperties=true) while providing structured validation and documentation for common keys and pipeline entry formats."
+}

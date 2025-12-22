@@ -22,7 +22,7 @@ from typing import Any, Iterable
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 PACKS_DIR = REPO_ROOT / "packs"
-SCHEMAS_DIR = REPO_ROOT / "schemas"
+TOOLING_DIR = REPO_ROOT / "tooling"
 DOCS_REF_DIR = REPO_ROOT / "docs" / "reference"
 SCHEMA_HTML_DIR = DOCS_REF_DIR / "schemas_html"
 
@@ -210,7 +210,7 @@ def _generate_schema_html(schema_files: list[Path]) -> bool:
     SCHEMA_HTML_DIR.mkdir(parents=True, exist_ok=True)
 
     for schema_path in schema_files:
-        rel = _posix_rel(schema_path, SCHEMAS_DIR)
+        rel = _posix_rel(schema_path, TOOLING_DIR)
         out_dir = SCHEMA_HTML_DIR / Path(rel).with_suffix("")
         out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -244,7 +244,7 @@ def main() -> int:
     packs_md = _render_packs_md(packs_dir=PACKS_DIR, repo_url=repo_url, repo_ref=repo_ref)
 
     schemas: list[DocItem] = []
-    schema_paths = list(_iter_json_files(SCHEMAS_DIR))
+    schema_paths = sorted(TOOLING_DIR.glob("*.schema.json"))
     for s in schema_paths:
         data = _read_json(s)
         title, desc = _extract_title_and_description(data, fallback_title=s.stem)

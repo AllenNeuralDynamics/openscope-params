@@ -1,9 +1,7 @@
 {
-  "$schema": "../../schemas/launcher/1.0.0.json",
+  "$schema": "../../tooling/model_launcher.schema.json",
   "launcher_version": ">=0.2,<0.3",
   "launcher": "base",
-
-  "description": "Example notes workflow: open/edit notes pre-acquisition and confirm/finalize notes post-acquisition.",
 
   "subject_id": "notes_demo_mouse",
   "user_id": "notes_tester",

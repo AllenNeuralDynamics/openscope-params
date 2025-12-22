@@ -1,0 +1,9 @@
+{
+  "additionalProperties": true,
+  "properties": {},
+  "title": "Module Parameters: stimulus_table_predictive_processing (Pydantic)",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/tooling/model_stimulus_table_predictive_processing.schema.json",
+  "description": "Generated from Pydantic model model_stimulus_table_predictive_processing.py:Parameters. Module parameters schema generated from Pydantic."
+}

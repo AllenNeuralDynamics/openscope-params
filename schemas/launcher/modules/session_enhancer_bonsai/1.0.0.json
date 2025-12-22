@@ -1,9 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.invalid/openscope-params/schemas/launcher/modules/session_enhancer_bonsai/1.0.0.json",
-  "title": "Module Parameters: session_enhancer_bonsai",
-  "description": "Post-acquisition enhancement step for Bonsai-based sessions. Typically reads outputs from the session folder and writes standardized/derived metadata. Most configuration is inferred from the session folder.",
-  "type": "object",
-  "additionalProperties": true,
-  "properties": {}
-}

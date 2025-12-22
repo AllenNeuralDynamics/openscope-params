@@ -1,0 +1,49 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "metadata_subject_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Subject identifier to query (defaults to top-level subject_id if omitted).",
+      "title": "Metadata Subject Id"
+    },
+    "metadata_mouse_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Optional mouse identifier if distinct from subject_id.",
+      "title": "Metadata Mouse Id"
+    },
+    "metadata_procedures_timeout": {
+      "default": 60,
+      "description": "Timeout in seconds for procedures fetch calls.",
+      "minimum": 0,
+      "title": "Metadata Procedures Timeout",
+      "type": "number"
+    }
+  },
+  "title": "Module Parameters: metadata_procedures_fetch (Pydantic)",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/tooling/model_metadata_procedures_fetch.schema.json",
+  "description": "Generated from Pydantic model model_metadata_procedures_fetch.py:Parameters. Module parameters schema generated from Pydantic."
+}

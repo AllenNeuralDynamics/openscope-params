@@ -1,9 +1,8 @@
 {
-  "$schema": "../../schemas/launcher/1.0.0.json",
+  "$schema": "../../tooling/model_launcher.schema.json",
   "launcher_version": ">=0.2,<0.3",
   "launcher": "base",
-
-  "subject_id": "test_mouse_001",
+  "subject_id": "test_subject",
   "user_id": "test_user",
 
   "pre_acquisition_pipeline": [

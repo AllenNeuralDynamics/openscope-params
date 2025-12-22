@@ -1,0 +1,78 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "metadata_protocol_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Expected protocol name.",
+      "title": "Metadata Protocol Name"
+    },
+    "metadata_protocol_prompt": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Prompt shown if protocol validation needs operator confirmation.",
+      "title": "Metadata Protocol Prompt"
+    },
+    "protocol_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Observed protocol name (advanced/legacy).",
+      "title": "Protocol Name"
+    },
+    "protocol_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Expected protocol identifier(s) (string/int or list).",
+      "title": "Protocol Id"
+    }
+  },
+  "title": "Module Parameters: metadata_protocol_validator (Pydantic)",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/tooling/model_metadata_protocol_validator.schema.json",
+  "description": "Generated from Pydantic model model_metadata_protocol_validator.py:Parameters. Module parameters schema generated from Pydantic."
+}

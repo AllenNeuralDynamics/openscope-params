@@ -1,9 +1,7 @@
 {
-  "$schema": "../../schemas/launcher/1.0.0.json",
+  "$schema": "../../tooling/model_launcher.schema.json",
   "launcher_version": ">=0.2,<0.3",
   "launcher": "base",
-
-  "description": "Example pipeline using interactive prompts for mouse weight and experiment notes (string-based pipeline entries).",
 
   "subject_id": "test_mouse",
   "user_id": "test_user",

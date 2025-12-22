@@ -3,7 +3,7 @@
 This repository contains:
 
 - **Parameter packs** under `packs/` (example launcher configuration JSON files)
-- **JSON Schemas** under `schemas/` used to validate those parameter files
+- **JSON Schemas** under `tooling/*.schema.json` used to validate those parameter files
 - **Tooling** under `tooling/` (e.g. validation and documentation generation)
 
 ## Relationship to `openscope-experimental-launcher`

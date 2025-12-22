@@ -1,0 +1,76 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "experiment_notes_filename": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Relative path (inside the session folder) for the notes file.",
+      "examples": [
+        "notes/experiment_notes.txt"
+      ],
+      "title": "Experiment Notes Filename"
+    },
+    "experiment_notes_encoding": {
+      "default": "utf-8",
+      "description": "Text encoding used when reading/writing the notes file.",
+      "title": "Experiment Notes Encoding",
+      "type": "string"
+    },
+    "experiment_notes_launch_editor": {
+      "default": true,
+      "description": "If true, launches an editor command to open the notes file.",
+      "title": "Experiment Notes Launch Editor",
+      "type": "boolean"
+    },
+    "experiment_notes_editor_command": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Editor command (string) or argv list.",
+      "title": "Experiment Notes Editor Command"
+    },
+    "experiment_notes_editor_args": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Additional args (string) or argv list.",
+      "title": "Experiment Notes Editor Args"
+    }
+  },
+  "title": "Module Parameters: experiment_notes_editor (Pydantic)",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/tooling/model_experiment_notes_editor.schema.json",
+  "description": "Generated from Pydantic model model_experiment_notes_editor.py:Parameters. Module parameters schema generated from Pydantic."
+}

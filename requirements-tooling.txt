@@ -1,0 +1,5 @@
+# Tooling dependencies (not required on rigs at runtime).
+# Used for exporting JSON Schemas from Pydantic models.
+
+pydantic>=2.7,<2.12
+

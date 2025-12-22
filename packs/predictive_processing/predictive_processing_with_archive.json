@@ -1,9 +1,7 @@
 {
-  "$schema": "../../schemas/launcher/1.0.0.json",
+  "$schema": "../../tooling/model_launcher.schema.json",
   "launcher_version": ">=0.2,<0.3",
   "launcher": "bonsai",
-
-  "description": "Predictive processing example with post-acquisition archiving (runs session_archiver after acquisition).",
 
   "subject_id": "mouse123",
   "user_id": "tester",

@@ -1,0 +1,9 @@
+{
+  "additionalProperties": true,
+  "properties": {},
+  "title": "Module Parameters: session_enhancer_bonsai (Pydantic)",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/tooling/model_session_enhancer_bonsai.schema.json",
+  "description": "Generated from Pydantic model model_session_enhancer_bonsai.py:Parameters. Module parameters schema generated from Pydantic."
+}

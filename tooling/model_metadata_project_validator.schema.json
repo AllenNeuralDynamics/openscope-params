@@ -1,0 +1,65 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "metadata_project_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Expected project name.",
+      "title": "Metadata Project Name"
+    },
+    "metadata_project_prompt": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Prompt shown if project validation needs operator confirmation.",
+      "title": "Metadata Project Prompt"
+    },
+    "project_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Observed project name (advanced/legacy).",
+      "title": "Project Name"
+    },
+    "projects": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "List of observed/allowed projects (advanced/legacy).",
+      "title": "Projects"
+    }
+  },
+  "title": "Module Parameters: metadata_project_validator (Pydantic)",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/tooling/model_metadata_project_validator.schema.json",
+  "description": "Generated from Pydantic model model_metadata_project_validator.py:Parameters. Module parameters schema generated from Pydantic."
+}

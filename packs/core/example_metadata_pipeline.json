@@ -1,9 +1,7 @@
 {
-  "$schema": "../../schemas/launcher/1.0.0.json",
+  "$schema": "../../tooling/model_launcher.schema.json",
   "launcher_version": ">=0.2,<0.3",
   "launcher": "base",
-
-  "description": "Example pre-acquisition metadata pipeline: fetch subject, fetch procedures, then validate expected project.",
 
   "subject_id": "mouse123",
   "user_id": "tester",

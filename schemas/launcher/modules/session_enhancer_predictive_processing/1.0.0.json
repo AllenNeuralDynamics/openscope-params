@@ -1,9 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.invalid/openscope-params/schemas/launcher/modules/session_enhancer_predictive_processing/1.0.0.json",
-  "title": "Module Parameters: session_enhancer_predictive_processing",
-  "description": "Post-acquisition enhancement for predictive-processing sessions. Typically computes/collects derived metadata and writes standardized files into the session folder.",
-  "type": "object",
-  "additionalProperties": true,
-  "properties": {}
-}

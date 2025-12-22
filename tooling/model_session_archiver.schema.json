@@ -1,0 +1,138 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "session_dir": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Source session directory to archive (defaults to launcher session folder if omitted).",
+      "title": "Session Dir"
+    },
+    "network_dir": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Destination directory on a network share.",
+      "title": "Network Dir"
+    },
+    "backup_dir": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Optional local backup directory used as an intermediate or fallback.",
+      "title": "Backup Dir"
+    },
+    "manifest_path": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Optional path to a manifest file describing what was archived.",
+      "title": "Manifest Path"
+    },
+    "include_patterns": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Glob(s) of files to include (string or list).",
+      "title": "Include Patterns"
+    },
+    "exclude_patterns": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Glob(s) of files to exclude (string or list).",
+      "title": "Exclude Patterns"
+    },
+    "checksum_algo": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Checksum algorithm for verification (e.g. 'md5', 'sha256').",
+      "title": "Checksum Algo"
+    },
+    "dry_run": {
+      "default": false,
+      "description": "If true, do not write/copy; only log intended operations.",
+      "title": "Dry Run",
+      "type": "boolean"
+    },
+    "skip_completed": {
+      "default": true,
+      "description": "If true, skip items that appear already archived.",
+      "title": "Skip Completed",
+      "type": "boolean"
+    },
+    "max_retries": {
+      "default": 3,
+      "description": "Maximum retries for transient failures (copy/verify).",
+      "minimum": 0,
+      "title": "Max Retries",
+      "type": "integer"
+    },
+    "remove_empty_dirs": {
+      "default": false,
+      "description": "If true, remove empty source directories after archiving.",
+      "title": "Remove Empty Dirs",
+      "type": "boolean"
+    }
+  },
+  "title": "Module Parameters: session_archiver (Pydantic)",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/tooling/model_session_archiver.schema.json",
+  "description": "Generated from Pydantic model model_session_archiver.py:Parameters. Module parameters schema generated from Pydantic."
+}

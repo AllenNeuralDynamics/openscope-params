@@ -1,9 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.invalid/openscope-params/schemas/launcher/modules/stimulus_table_predictive_processing/1.0.0.json",
-  "title": "Module Parameters: stimulus_table_predictive_processing",
-  "description": "Generates or validates the predictive-processing stimulus table within the session folder. This module typically relies on top-level session context (e.g. output_session_folder) rather than additional parameters.",
-  "type": "object",
-  "additionalProperties": true,
-  "properties": {}
-}

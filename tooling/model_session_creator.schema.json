@@ -1,0 +1,16 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "force": {
+      "default": false,
+      "description": "If true, overwrite/recreate an existing session folder if present.",
+      "title": "Force",
+      "type": "boolean"
+    }
+  },
+  "title": "Module Parameters: session_creator (Pydantic)",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/tooling/model_session_creator.schema.json",
+  "description": "Generated from Pydantic model model_session_creator.py:Parameters. Module parameters schema generated from Pydantic."
+}

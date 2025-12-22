@@ -12,7 +12,7 @@ Principles
 
 Repo layout
 -----------
-- `schemas/launcher/`: base launcher schemas (per schema version).
+- `tooling/*.schema.json`: generated JSON Schemas (colocated with the Pydantic models).
 - `packs/`: curated parameter files organized by rig/project.
 - `tooling/`: validation tools.
 
@@ -26,9 +26,3 @@ Validate one pack file
 ```powershell
 python .\tooling\validate.py --param .\packs\slap2\session_sync_master.json
 ```
-
-Notes
------
-- This repo intentionally does **not** maintain a “known-good compatibility matrix”. Each param file pins the schema
-  and launcher expectations.
-- The launcher may optionally cache remote schema files for validation; rigs can prefetch schemas during provisioning.

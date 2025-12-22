@@ -1,6 +1,6 @@
 # Schemas
 
-Schemas live under `schemas/`.
+Schemas are generated from the Pydantic models in `tooling/` and live next to them as `tooling/*.schema.json`.
 
 ## Documentation fields
 

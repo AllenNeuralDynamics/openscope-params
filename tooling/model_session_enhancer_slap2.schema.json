@@ -1,0 +1,127 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "session_type": {
+      "anyOf": [
+        {
+          "enum": [
+            "Parent",
+            "Branch"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Whether this session is a parent (primary) or a branch (child/follow-up) session.",
+      "title": "Session Type"
+    },
+    "targeted_structure": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Brain structure targeted by the experiment (free-text).",
+      "title": "Targeted Structure"
+    },
+    "fov_coordinate_ml": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Field-of-view mediolateral coordinate.",
+      "title": "Fov Coordinate Ml"
+    },
+    "fov_coordinate_ap": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Field-of-view anteroposterior coordinate.",
+      "title": "Fov Coordinate Ap"
+    },
+    "fov_coordinate_unit": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Units for FOV coordinates (e.g. 'mm' or 'um').",
+      "examples": [
+        "mm"
+      ],
+      "title": "Fov Coordinate Unit"
+    },
+    "fov_reference": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Reference origin used for coordinates (free-text).",
+      "examples": [
+        "bregma"
+      ],
+      "title": "Fov Reference"
+    },
+    "magnification": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Objective or system magnification descriptor.",
+      "examples": [
+        "16x"
+      ],
+      "title": "Magnification"
+    },
+    "fov_scale_factor": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Scale factor applied to convert coordinates/pixels to physical units (module-specific).",
+      "title": "Fov Scale Factor"
+    }
+  },
+  "title": "Module Parameters: session_enhancer_slap2 (Pydantic)",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/tooling/model_session_enhancer_slap2.schema.json",
+  "description": "Generated from Pydantic model model_session_enhancer_slap2.py:Parameters. Module parameters schema generated from Pydantic."
+}

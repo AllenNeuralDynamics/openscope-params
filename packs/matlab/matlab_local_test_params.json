@@ -1,9 +1,9 @@
 {
-  "$schema": "../../schemas/launcher/1.0.0.json",
+  "$schema": "../../tooling/model_launcher.schema.json",
   "launcher_version": ">=0.2,<0.3",
   "launcher": "matlab",
 
-  "subject_id": "test_mouse_local",
+  "subject_id": "mouse123",
   "user_id": "local_operator",
 
   "output_root_folder": "C:/OpenScopeLocalSessions",
