@@ -18,6 +18,7 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable
+from urllib.parse import urlparse
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -61,6 +62,58 @@ def _github_file_url(*, repo_url: str, rel_path_posix: str, ref: str = "main", r
         repo_subdir = repo_subdir.strip("/")
         return f"{repo_url}/blob/{ref}/{repo_subdir}/{rel_path_posix}"
     return f"{repo_url}/blob/{ref}/{rel_path_posix}"
+
+
+def _default_repo_url(repo_root: Path) -> str:
+    """Best-effort default repo URL.
+
+    Prefer mkdocs.yml's repo_url if present to keep generated links consistent
+    with the published site.
+    """
+
+    mkdocs = repo_root / "mkdocs.yml"
+    if mkdocs.exists():
+        try:
+            for raw_line in mkdocs.read_text(encoding="utf-8").splitlines():
+                line = raw_line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                if line.startswith("repo_url:"):
+                    value = line.split(":", 1)[1].strip().strip("\"'")
+                    if value:
+                        return value
+        except Exception:
+            pass
+
+    # Fallback: standalone openscope-params repo
+    return "https://github.com/AllenNeuralDynamics/openscope-params"
+
+
+def _normalize_repo_subdir(repo_url: str, repo_subdir: str | None) -> str | None:
+    """Avoid generating duplicate path segments.
+
+    If repo_url already points at the same repo name as repo_subdir (e.g.
+    repo_url ends with /openscope-params and repo_subdir is 'openscope-params'),
+    then repo_subdir is not a subdirectory and must be ignored.
+    """
+
+    if not repo_subdir:
+        return None
+
+    repo_subdir = repo_subdir.strip("/")
+    if not repo_subdir:
+        return None
+
+    try:
+        parsed = urlparse(repo_url)
+        parts = [p for p in parsed.path.split("/") if p]
+        repo_name = parts[-1] if parts else ""
+        if repo_name and repo_subdir == repo_name:
+            return None
+    except Exception:
+        pass
+
+    return repo_subdir
 
 
 def _extract_title_and_description(data: dict[str, Any], fallback_title: str) -> tuple[str, str | None]:
@@ -242,13 +295,10 @@ def _generate_schema_html(schema_files: list[Path]) -> bool:
 
 
 def main() -> int:
-    repo_url = os.environ.get(
-        "OPENSCOPE_PARAMS_REPO_URL",
-        "https://github.com/AllenNeuralDynamics/openscope-community-predictive-processing",
-    )
+    repo_url = os.environ.get("OPENSCOPE_PARAMS_REPO_URL") or _default_repo_url(REPO_ROOT)
     repo_ref = os.environ.get("OPENSCOPE_PARAMS_REPO_REF", "main")
-    repo_subdir_env = os.environ.get("OPENSCOPE_PARAMS_REPO_SUBDIR", "openscope-params")
-    repo_subdir = repo_subdir_env.strip("/") if repo_subdir_env else None
+    repo_subdir_env = os.environ.get("OPENSCOPE_PARAMS_REPO_SUBDIR")
+    repo_subdir = _normalize_repo_subdir(repo_url, repo_subdir_env)
 
     packs_md = _render_packs_md(packs_dir=PACKS_DIR, repo_url=repo_url, repo_ref=repo_ref, repo_subdir=repo_subdir)
 
