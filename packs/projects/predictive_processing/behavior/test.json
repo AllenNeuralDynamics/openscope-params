@@ -8,6 +8,11 @@
     "bonsai_exe_path": "code/stimulus-control/bonsai/Bonsai.exe",
     "bonsai_setup_script": "code/stimulus-control/bonsai/setup.cmd",
     "output_root_folder": "C:/BonsaiDataPredictiveProcessing",
+
+    "session_sync_role": "master",
+    "session_sync_port": 47001,
+    "session_sync_expected_slaves": 1,
+    "session_sync_bind_host": "127.0.0.1",
     "script_parameters": {
         "stimulus_table_path": "{session_folder}\\predictive_processing_session.csv",
         "PortName": "{rig_param:COM_port}",
@@ -74,8 +79,8 @@
             "module_type": "launcher_module",
             "module_path": "session_archiver",
             "module_parameters": {
-                "network_dir": "\\\\allen\\aind\\scratch\\OpenScope\\Slap2\\Data\\{subject_id}\\{session_uuid}",
-                "backup_dir": "C:\\BonsaiDataPredictiveProcessing\\Archive\\{subject_id}\\{session_uuid}"
+                "network_dir": "\\\\allen\\aind\\scratch\\OpenScope\\Slap2\\Data\\{subject_id}\\{session_uuid}\\behavior",
+                "backup_dir": "C:\\BonsaiDataPredictiveProcessing\\Archive\\{subject_id}\\{session_uuid}\\behavior"
             }
         }
     ]

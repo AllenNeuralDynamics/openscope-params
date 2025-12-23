@@ -1,0 +1,48 @@
+{
+  "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
+  "launcher_version": ">=0.2,<0.3",
+  "launcher": "matlab",
+  "output_root_folder": "C:/BonsaiDataPredictiveProcessing",
+  "matlab_engine_name": "slap2_launcher",
+  "matlab_entrypoint": "slap2_launcher",
+  "script_parameters": {
+    "rig_description_path": "C:/Users/ScanImage/Documents/slap2/configuration.json"
+  },
+
+  "session_sync_role": "slave",
+  "session_sync_port": 47001,
+  "session_sync_master_host": "127.0.0.1",
+
+  "pre_acquisition_pipeline": [
+    {
+      "module_type": "launcher_module",
+      "module_path": "experiment_notes_editor",
+      "module_parameters": {
+        "experiment_notes_launch_editor": true,
+        "experiment_notes_filename": "notes/experiment_notes.txt"
+      }
+    }
+  ],
+
+  "post_acquisition_pipeline": [
+    {
+      "module_type": "launcher_module",
+      "module_path": "experiment_notes_finalize",
+      "module_parameters": {
+        "experiment_notes_filename": "notes/experiment_notes.txt",
+        "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; press Enter to finish."
+      }
+    },
+    {
+      "module_type": "launcher_module",
+      "module_path": "session_archiver",
+      "module_parameters": {
+        "network_dir": "{output_session_folder}\\slap2",
+        "backup_dir": "{output_session_folder}\\archive\\slap2",
+        "remove_empty_dirs": false,
+        "skip_completed": true,
+        "max_retries": 3
+      }
+    }
+  ]
+}
