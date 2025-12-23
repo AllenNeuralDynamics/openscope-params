@@ -5,7 +5,7 @@
 From the repo root:
 
 ```powershell
-python .\tooling\validate.py --param .\packs\slap2\session_sync_master.json
+python .\tooling\validate.py --param .\packs\shared\core\session_sync_master.json
 ```
 
 ## Validate all packs

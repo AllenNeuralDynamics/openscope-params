@@ -3,6 +3,8 @@
 This repository contains:
 
 - **Parameter packs** under `packs/` (example launcher configuration JSON files)
+	- `packs/shared/` for reusable, cross-project params
+	- `packs/projects/` for project-specific params
 - **JSON Schemas** under `tooling/*.schema.json` used to validate those parameter files
 - **Tooling** under `tooling/` (e.g. validation and documentation generation)
 

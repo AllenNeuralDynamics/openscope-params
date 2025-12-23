@@ -13,7 +13,9 @@ Principles
 Repo layout
 -----------
 - `tooling/*.schema.json`: generated JSON Schemas (colocated with the Pydantic models).
-- `packs/`: curated parameter files organized by rig/project.
+- `packs/`: curated parameter files.
+  - `packs/shared/<group>/`: reusable params shared across multiple projects.
+  - `packs/projects/<project>/<context>/`: project-specific params.
 - `tooling/`: validation tools.
 
 Validate all packs
@@ -24,5 +26,5 @@ python .\tooling\validate.py
 
 Validate one pack file
 ```powershell
-python .\tooling\validate.py --param .\packs\slap2\session_sync_master.json
+python .\tooling\validate.py --param .\packs\shared\core\session_sync_master.json
 ```

@@ -1,6 +1,11 @@
 # Packs
 
-A **pack** is a curated set of parameter files under `packs/<pack_name>/`.
+A **pack** is a curated set of parameter files under a directory within `packs/`.
+
+Layout:
+
+- `packs/shared/<group>/`: reusable params shared across multiple projects.
+- `packs/projects/<project>/<context>/`: project-specific params.
 
 Conventions:
 
