@@ -1,0 +1,81 @@
+{
+    "launcher": "bonsai",
+    "repository_url": "https://github.com/AllenNeuralDynamics/openscope-community-predictive-processing.git",
+    "repository_commit_hash": "17867095c5d0b7aba62e21f1884a68beb65054c7",
+    "local_repository_path": "C:/BonsaiDataPredictiveProcessing/Code",
+    "script_path": "code/stimulus-control/src/Mindscope/generic_oddball_slap2.bonsai",
+    "bonsai_exe_path": "code/stimulus-control/bonsai/Bonsai.exe",
+    "bonsai_setup_script": "code/stimulus-control/bonsai/setup.cmd",
+    "output_root_folder": "C:/BonsaiDataPredictiveProcessing", 
+    "script_parameters": {
+        "stimulus_table_path": "{session_folder}\\predictive_processing_session.csv",
+        "PortName": "{rig_param:COM_port}",
+        "RecordCameras": "{rig_param:RecordCameras}",
+        "Subject": "{subject_id}",
+        "DisplayDeviceIndex": "{rig_param:DisplayDeviceIndex}",
+        "WindowStateIndex": "{rig_param:WindowStateIndex}",
+        "stimulus_table_duration": "02:00:00"
+    },
+    "pre_acquisition_pipeline": [
+        {
+            "module_type": "script_module",
+            "module_path": "code/stimulus-control/src/Mindscope/generate_experiment_csv.py",
+            "module_parameters": {
+                "function": "generate_single_session_csv",
+                "function_args": {
+                    "session_type": "visual_mismatch",
+                    "seed": 42,
+                    "output_path": "{session_folder}\\predictive_processing_session.csv"
+                }
+            }
+        },
+         {
+            "module_type": "launcher_module",
+            "module_path": "experiment_notes_editor",
+            "module_parameters": {
+                "experiment_notes_launch_editor": true,
+                "experiment_notes_filename": "notes/experiment_notes.txt"
+            }
+            },
+        {
+            "module_type": "launcher_module",
+            "module_path": "metadata_subject_fetch",
+            "module_parameters": {
+                "metadata_subject_id": "{subject_id}"
+                    }
+        },
+        {
+            "module_type": "launcher_module",
+            "module_path": "metadata_procedures_fetch",
+            "module_parameters": {
+                "metadata_subject_id": "{subject_id}",
+                "metadata_procedures_timeout": 60
+                }
+        },
+        {
+            "module_type": "launcher_module",
+            "module_path": "metadata_project_validator",
+            "module_parameters": {
+                "metadata_project_name": "Ophys Platform - SLAP2"
+            }
+        }
+    ],
+    "post_acquisition_pipeline": [
+            {
+        "module_type": "launcher_module",
+        "module_path": "experiment_notes_finalize",
+        "module_parameters": {
+            "experiment_notes_filename": "notes/experiment_notes.txt",
+            "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; press Enter to finish."
+        }
+        },
+        {
+            "module_type": "launcher_module",
+            "module_path": "session_archiver",
+            "module_parameters": {
+                "network_dir": "\\\\allen\\aind\\scratch\\OpenScope\\Slap2\\Data\\{subject_id}\\{session_uuid}",
+                "backup_dir": "C:\\BonsaiDataPredictiveProcessing\\Archive\\{subject_id}\\{session_uuid}"
+            }
+        }
+    ]
+}
