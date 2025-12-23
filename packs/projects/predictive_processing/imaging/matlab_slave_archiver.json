@@ -37,8 +37,8 @@
       "module_type": "launcher_module",
       "module_path": "session_archiver",
       "module_parameters": {
-        "network_dir": "{output_session_folder}\\slap2",
-        "backup_dir": "{output_session_folder}\\archive\\slap2",
+        "network_dir": "\\\\allen\\aind\\scratch\\OpenScope\\Slap2\\Data\\{subject_id}\\{session_uuid}\\slap2",
+        "backup_dir": "C:\\BonsaiDataPredictiveProcessing\\Archive\\{subject_id}\\{session_uuid}\\slap2",
         "remove_empty_dirs": false,
         "skip_completed": true,
         "max_retries": 3
