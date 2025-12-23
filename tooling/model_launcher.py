@@ -22,6 +22,10 @@ class PipelineEntryObject(BaseModel):
     module_path: str = Field(
         ..., description="Identifier for module to run (launcher_module name or script path)."
     )
+    module_schema: str | None = Field(
+        default=None,
+        description="Optional schema (URL or path) to validate module_parameters; defaults to the module's generated schema if omitted.",
+    )
     module_parameters: dict | ScriptModuleParameters | None = Field(
         default=None,
         description="Arguments passed to the module.",
@@ -53,8 +57,14 @@ class LauncherParams(BaseModel):
     launcher_version: str | None = Field(default=None)
     launcher: Literal["base", "bonsai", "python", "matlab"] | None = Field(default=None)
 
-    subject_id: str | int = Field(..., description="Subject identifier used for naming and metadata lookup.")
-    user_id: str = Field(..., description="Operator/user identifier recorded alongside the session.")
+    subject_id: str | int | None = Field(
+        default=None,
+        description="Subject identifier; may be provided at runtime instead of in the param file.",
+    )
+    user_id: str | None = Field(
+        default=None,
+        description="Operator/user identifier; may be provided at runtime instead of in the param file.",
+    )
 
     # Optional richer identifiers. Kept as plain objects to avoid extra dependencies.
     operator: dict | None = Field(default=None, description="Optional operator identifier object.")

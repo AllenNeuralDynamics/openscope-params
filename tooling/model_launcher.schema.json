@@ -74,6 +74,19 @@
           "title": "Module Path",
           "type": "string"
         },
+        "module_schema": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional schema (URL or path) to validate module_parameters; defaults to the module's generated schema if omitted.",
+          "title": "Module Schema"
+        },
         "module_parameters": {
           "anyOf": [
             {
@@ -185,15 +198,27 @@
         },
         {
           "type": "integer"
+        },
+        {
+          "type": "null"
         }
       ],
-      "description": "Subject identifier used for naming and metadata lookup.",
+      "default": null,
+      "description": "Subject identifier; may be provided at runtime instead of in the param file.",
       "title": "Subject Id"
     },
     "user_id": {
-      "description": "Operator/user identifier recorded alongside the session.",
-      "title": "User Id",
-      "type": "string"
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Operator/user identifier; may be provided at runtime instead of in the param file.",
+      "title": "User Id"
     },
     "operator": {
       "anyOf": [
@@ -395,10 +420,6 @@
       "title": "Post Acquisition Pipeline"
     }
   },
-  "required": [
-    "subject_id",
-    "user_id"
-  ],
   "title": "OpenScope Experimental Launcher Params (Pydantic)",
   "type": "object",
   "$schema": "https://json-schema.org/draft/2020-12/schema",

@@ -1,5 +1,5 @@
 {
-  "$schema": "../../tooling/model_launcher.schema.json",
+  "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
   "launcher_version": ">=0.2,<0.3",
   "launcher": "matlab",
 
