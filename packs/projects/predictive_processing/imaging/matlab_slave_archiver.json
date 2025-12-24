@@ -29,6 +29,7 @@
       "module_type": "launcher_module",
       "module_path": "slap2_meta_annotator",
       "module_parameters": {
+        "source_dir": "{session_folder}",
         "manifest_path": "{session_folder}\\launcher_metadata\\routing_manifest.json"
       }
     },
