@@ -1,12 +1,12 @@
 {
   "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
-  "launcher_version": ">=0.2,<0.3",
+  "launcher_version": "",
   "launcher": "base",
 
   "subject_id": "mouse123",
   "user_id": "tester",
 
   "session_sync_role": "slave",
-  "session_sync_port": 47001,
-  "session_sync_master_host": "127.0.0.1"
+  "session_sync_port": 50001,
+  "session_sync_master_host": "10.128.53.175"
 }

@@ -40,3 +40,7 @@ class Parameters(BaseModel):
         default="routing_manifest.json",
         description="Filename for the routing/annotation manifest (written under launcher_metadata).",
     )
+    manifest_path: str | None = Field(
+        default=None,
+        description="Optional manifest path (absolute or relative to session folder) to override the default under launcher_metadata.",
+    )

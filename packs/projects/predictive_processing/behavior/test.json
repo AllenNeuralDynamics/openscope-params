@@ -10,9 +10,9 @@
     "output_root_folder": "C:/BonsaiDataPredictiveProcessing",
 
     "session_sync_role": "master",
-    "session_sync_port": 47001,
+    "session_sync_port": 50001,
     "session_sync_expected_slaves": 1,
-    "session_sync_bind_host": "127.0.0.1",
+    "session_sync_bind_host": "0.0.0.0",
     "script_parameters": {
         "stimulus_table_path": "{session_folder}\\predictive_processing_session.csv",
         "PortName": "{rig_param:COM_port}",
@@ -40,7 +40,7 @@
             "module_path": "experiment_notes_editor",
             "module_parameters": {
                 "experiment_notes_launch_editor": true,
-                "experiment_notes_filename": "notes/experiment_notes.txt"
+                "experiment_notes_filename": "{session_folder}\\notes\\experiment_notes.txt"
             }
         },
         {
@@ -71,7 +71,7 @@
             "module_type": "launcher_module",
             "module_path": "experiment_notes_finalize",
             "module_parameters": {
-                "experiment_notes_filename": "notes/experiment_notes.txt",
+                "experiment_notes_filename": "{session_folder}\\notes\\experiment_notes.txt",
                 "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; press Enter to finish."
             }
         },
