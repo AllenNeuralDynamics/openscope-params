@@ -27,6 +27,11 @@
   "post_acquisition_pipeline": [
     {
       "module_type": "launcher_module",
+      "module_path": "slap2_meta_annotator",
+      "module_parameters": {}
+    },
+    {
+      "module_type": "launcher_module",
       "module_path": "experiment_notes_finalize",
       "module_parameters": {
         "experiment_notes_filename": "notes/experiment_notes.txt",

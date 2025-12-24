@@ -23,6 +23,10 @@ class Parameters(BaseModel):
         default=None,
         description="Optional path to a manifest file describing what was archived.",
     )
+    routing_manifest: str | None = Field(
+        default=None,
+        description="Optional path to a routing manifest produced by pre-archiver modules (e.g., slap2_meta_annotator).",
+    )
     include_patterns: Union[str, list[str], None] = Field(
         default=None,
         description="Glob(s) of files to include (string or list).",
