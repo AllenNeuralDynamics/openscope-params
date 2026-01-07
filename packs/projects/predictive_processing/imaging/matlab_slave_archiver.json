@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
   "launcher_version": "",
   "launcher": "matlab",
-  "output_root_folder": "C:/BonsaiDataPredictiveProcessing",
+  "output_root_folder": "F:/slap2Data",
   "matlab_engine_name": "slap2_launcher",
   "matlab_entrypoint": "slap2_launcher",
   "script_parameters": {

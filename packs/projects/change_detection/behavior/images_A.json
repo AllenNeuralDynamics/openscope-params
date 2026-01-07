@@ -1,0 +1,80 @@
+{
+  "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
+  "launcher": "bonsai",
+
+  "repository_url": "https://github.com/AllenNeuralDynamics/Aind.Behavior.ChangeDetection.git",
+  "repository_commit_hash": "24c04ed60a89a135b668ca506d6cbf7ab65fdfd0",
+  "local_repository_path": "C:/BonsaiDataDoC/Code",
+
+  "script_path": "src/DetectionOfChange_with_template_and_mpe_comp.bonsai",
+  "bonsai_exe_path": "bonsai/Bonsai.exe",
+  "bonsai_setup_script": "bonsai/setup.cmd",
+
+  "output_root_folder": "C:/BonsaiDataDoC/Data/session_data",
+
+  "session_sync_role": "master",
+  "session_sync_port": 50001,
+  "session_sync_expected_slaves": 1,
+  "session_sync_bind_host": "0.0.0.0",
+
+  "script_parameters": {
+    "Path": "stimuli\\images_A",
+    "PortName": "{rig_param:COM_port}",
+    "RootFolder": "{session_folder}",
+    "Subject": "{subject_id}",
+    "ValveOpenTime": 80,
+    "DueTime": "00:30:00"
+  },
+
+  "pre_acquisition_pipeline": [
+    {
+      "module_type": "launcher_module",
+      "module_path": "experiment_notes_editor",
+      "module_parameters": {
+        "experiment_notes_launch_editor": true,
+        "experiment_notes_filename": "{session_folder}\\notes\\experiment_notes.txt"
+      }
+    },
+    {
+      "module_type": "launcher_module",
+      "module_path": "metadata_subject_fetch",
+      "module_parameters": {
+        "metadata_subject_id": "{subject_id}"
+      }
+    },
+    {
+      "module_type": "launcher_module",
+      "module_path": "metadata_procedures_fetch",
+      "module_parameters": {
+        "metadata_subject_id": "{subject_id}",
+        "metadata_procedures_timeout": 60
+      }
+    },
+    {
+      "module_type": "launcher_module",
+      "module_path": "metadata_project_validator",
+      "module_parameters": {
+        "metadata_project_name": "Ophys Platform - SLAP2"
+      }
+    }
+  ],
+
+  "post_acquisition_pipeline": [
+    {
+      "module_type": "launcher_module",
+      "module_path": "experiment_notes_finalize",
+      "module_parameters": {
+        "experiment_notes_filename": "{session_folder}\\notes\\experiment_notes.txt",
+        "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; press Enter to finish."
+      }
+    },
+    {
+      "module_type": "launcher_module",
+      "module_path": "session_archiver",
+      "module_parameters": {
+        "network_dir": "\\\\allen\\aind\\scratch\\ophys\\Andrew\\VIP_synaptic_dynamics\\{subject_id}\\{session_uuid}\\behavior",
+        "backup_dir": "C:\\BonsaiDataDoC\\Archive\\{subject_id}\\{session_uuid}\\behavior"
+      }
+    }
+  ]
+}
