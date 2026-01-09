@@ -1,0 +1,32 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "prompt": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Prompt shown to the operator. If omitted, the launcher uses a built-in default.",
+      "examples": [
+        "Rig ready? Press Enter to start Bonsai"
+      ],
+      "title": "Prompt"
+    },
+    "fail_if_no_input": {
+      "default": false,
+      "description": "If true, treat missing stdin (non-interactive) as an error.",
+      "title": "Fail If No Input",
+      "type": "boolean"
+    }
+  },
+  "title": "Module Parameters: wait_for_user_input (Pydantic)",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/tooling/model_wait_for_user_input.schema.json",
+  "description": "Generated from Pydantic model model_wait_for_user_input.py:Parameters. Pause until an operator confirms readiness (press Enter)."
+}
