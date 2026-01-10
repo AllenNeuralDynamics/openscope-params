@@ -1,6 +1,6 @@
-{
+﻿{
     "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
-    "launcher_version": ">=0.2.10,<0.3",
+    "launcher_version": ">=0.2.7",
     "launcher": "bonsai",
     "repository_url": "https://github.com/AllenNeuralDynamics/openscope-community-predictive-processing.git",
     "repository_commit_hash": "17867095c5d0b7aba62e21f1884a68beb65054c7",
@@ -15,7 +15,7 @@
     "session_sync_expected_slaves": 1,
     "session_sync_bind_host": "0.0.0.0",
     "script_parameters": {
-        "stimulus_table_path": "{session_folder}\\predictive_processing_session.csv",
+        "stimulus_table_path": "{output_session_folder}\\predictive_processing_session.csv",
         "PortName": "{rig_param:COM_port}",
         "RecordCameras": "{rig_param:RecordCameras}",
         "Subject": "{subject_id}",
@@ -32,7 +32,7 @@
                 "function_args": {
                     "session_type": "visual_mismatch",
                     "seed": 42,
-                    "output_path": "{session_folder}\\predictive_processing_session.csv"
+                    "output_path": "{output_session_folder}\\predictive_processing_session.csv"
                 }
             }
         },
@@ -41,7 +41,7 @@
             "module_path": "experiment_notes_editor",
             "module_parameters": {
                 "experiment_notes_launch_editor": true,
-                "experiment_notes_filename": "{session_folder}\\notes\\experiment_notes.txt"
+                "experiment_notes_filename": "{output_session_folder}\\notes\\experiment_notes.txt"
             }
             },
         {
@@ -71,7 +71,7 @@
         "module_type": "launcher_module",
         "module_path": "experiment_notes_finalize",
         "module_parameters": {
-            "experiment_notes_filename": "{session_folder}\\notes\\experiment_notes.txt",
+            "experiment_notes_filename": "{output_session_folder}\\notes\\experiment_notes.txt",
             "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; press Enter to finish."
         }
         },
@@ -79,10 +79,13 @@
             "module_type": "launcher_module",
             "module_path": "session_archiver",
             "module_parameters": {
-                "session_dir": "{session_folder}",
+                "session_dir": "{output_session_folder}",
                 "network_dir": "\\\\allen\\aind\\scratch\\OpenScope\\Slap2\\Data\\{subject_id}\\{session_uuid}\\behavior",
                 "backup_dir": "C:\\BonsaiDataPredictiveProcessing\\Archive\\{subject_id}\\{session_uuid}\\behavior"
             }
         }
     ]
 }
+
+
+

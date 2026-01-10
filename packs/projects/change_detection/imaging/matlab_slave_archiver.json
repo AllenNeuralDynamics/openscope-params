@@ -1,6 +1,6 @@
-{
+﻿{
   "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
-  "launcher_version": "",
+  "launcher_version": ">=0.2.7",
   "launcher": "matlab",
   "output_root_folder": "F:/slap2Data",
   "matlab_engine_name": "slap2_launcher",
@@ -19,7 +19,7 @@
       "module_path": "experiment_notes_editor",
       "module_parameters": {
         "experiment_notes_launch_editor": true,
-        "experiment_notes_filename": "{session_folder}\\notes\\experiment_notes.txt"
+        "experiment_notes_filename": "{output_session_folder}\\notes\\experiment_notes.txt"
       }
     }
   ],
@@ -29,15 +29,15 @@
       "module_type": "launcher_module",
       "module_path": "slap2_meta_annotator",
       "module_parameters": {
-        "source_dir": "{session_folder}",
-        "manifest_path": "{session_folder}\\launcher_metadata\\routing_manifest.json"
+        "source_dir": "{output_session_folder}",
+        "manifest_path": "{output_session_folder}\\launcher_metadata\\routing_manifest.json"
       }
     },
     {
       "module_type": "launcher_module",
       "module_path": "experiment_notes_finalize",
       "module_parameters": {
-        "experiment_notes_filename": "{session_folder}\\notes\\experiment_notes.txt",
+        "experiment_notes_filename": "{output_session_folder}\\notes\\experiment_notes.txt",
         "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; press Enter to finish."
       }
     },
@@ -47,7 +47,7 @@
       "module_parameters": {
         "network_dir": "\\\\allen\\aind\\scratch\\ophys\\Andrew\\VIP_synaptic_dynamics\\{subject_id}\\{session_uuid}\\slap2",
         "backup_dir": "C:\\BonsaiDataDoC\\Archive\\{subject_id}\\{session_uuid}\\slap2",
-        "routing_manifest": "{session_folder}\\launcher_metadata\\routing_manifest.json",
+        "routing_manifest": "{output_session_folder}\\launcher_metadata\\routing_manifest.json",
         "remove_empty_dirs": false,
         "skip_completed": true,
         "max_retries": 3
@@ -55,3 +55,7 @@
     }
   ]
 }
+
+
+
+

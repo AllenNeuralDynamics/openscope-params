@@ -1,6 +1,6 @@
-{
+﻿{
   "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
-  "launcher_version": ">=0.2,<0.3",
+  "launcher_version": ">=0.2.7",
   "launcher": "base",
 
   "subject_id": "mouse123",
@@ -10,3 +10,7 @@
   "session_sync_port": 47001,
   "session_sync_master_host": "127.0.0.1"
 }
+
+
+
+

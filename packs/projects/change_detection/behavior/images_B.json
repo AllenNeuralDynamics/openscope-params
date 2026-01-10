@@ -1,6 +1,6 @@
-{
+﻿{
   "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
-  "launcher_version": ">=0.2.10,<0.3",
+  "launcher_version": ">=0.2.7",
   "launcher": "bonsai",
 
   "repository_url": "https://github.com/AllenNeuralDynamics/Aind.Behavior.ChangeDetection.git",
@@ -21,7 +21,7 @@
   "script_parameters": {
     "Path": "stimuli\\images_B",
     "PortName": "{rig_param:COM_port}",
-    "RootFolder": "{session_folder}",
+    "RootFolder": "{output_session_folder}",
     "Subject": "{subject_id}",
     "ValveOpenTime": 80,
     "DueTime": "00:30:00"
@@ -33,7 +33,7 @@
       "module_path": "experiment_notes_editor",
       "module_parameters": {
         "experiment_notes_launch_editor": true,
-        "experiment_notes_filename": "{session_folder}\\notes\\experiment_notes.txt"
+        "experiment_notes_filename": "{output_session_folder}\\notes\\experiment_notes.txt"
       }
     },
     {
@@ -41,7 +41,7 @@
       "module_path": "metadata_subject_fetch",
       "module_parameters": {
         "metadata_subject_id": "{subject_id}",
-        "metadata_subject_path": "{session_folder}\\subject.json"
+        "metadata_subject_path": "{output_session_folder}\\subject.json"
       }
     },
     {
@@ -49,7 +49,7 @@
       "module_path": "metadata_project_validator",
       "module_parameters": {
         "metadata_project_name": "Ophys Platform - SLAP2",
-        "metadata_project_path": "{session_folder}\\project.json"
+        "metadata_project_path": "{output_session_folder}\\project.json"
       }
     },
     {
@@ -66,7 +66,7 @@
       "module_type": "launcher_module",
       "module_path": "experiment_notes_finalize",
       "module_parameters": {
-        "experiment_notes_filename": "{session_folder}\\notes\\experiment_notes.txt",
+        "experiment_notes_filename": "{output_session_folder}\\notes\\experiment_notes.txt",
         "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; type 'yes' to finish.",
         "experiment_notes_autoclose_editor": true
       }
@@ -75,10 +75,14 @@
       "module_type": "launcher_module",
       "module_path": "session_archiver",
       "module_parameters": {
-        "session_dir": "{session_folder}",
+        "session_dir": "{output_session_folder}",
         "network_dir": "\\\\allen\\aind\\scratch\\ophys\\Andrew\\VIP_synaptic_dynamics\\{subject_id}\\{session_uuid}\\behavior",
         "backup_dir": "C:\\BonsaiDataDoC\\Archive\\{subject_id}\\{session_uuid}\\behavior"
       }
     }
   ]
 }
+
+
+
+

@@ -10,9 +10,9 @@ from pydantic import BaseModel, ConfigDict, Field
 class Parameters(BaseModel):
     model_config = ConfigDict(extra="allow")
 
-    session_dir: str | None = Field(
-        default=None,
-        description="Source session directory to archive (defaults to launcher session folder if omitted).",
+    session_dir: str = Field(
+        ...,
+        description="Source session directory to archive (required; typically {output_session_folder}).",
     )
     network_dir: str | None = Field(default=None, description="Destination directory on a network share.")
     backup_dir: str | None = Field(

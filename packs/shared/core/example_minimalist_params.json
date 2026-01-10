@@ -1,6 +1,6 @@
-{
+﻿{
   "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
-  "launcher_version": ">=0.2,<0.3",
+  "launcher_version": ">=0.2.7",
   "launcher": "base",
   "subject_id": "test_subject",
   "user_id": "test_user",
@@ -21,3 +21,7 @@
   "active_mouse_platform": true,
   "description": "Minimalist test of BaseLauncher functionality"
 }
+
+
+
+
