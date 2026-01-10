@@ -1,5 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
+  "launcher_version": ">=0.2.10,<0.3",
   "launcher": "bonsai",
 
   "repository_url": "https://github.com/AllenNeuralDynamics/Aind.Behavior.ChangeDetection.git",
@@ -39,22 +40,23 @@
       "module_type": "launcher_module",
       "module_path": "metadata_subject_fetch",
       "module_parameters": {
-        "metadata_subject_id": "{subject_id}"
-      }
-    },
-    {
-      "module_type": "launcher_module",
-      "module_path": "metadata_procedures_fetch",
-      "module_parameters": {
         "metadata_subject_id": "{subject_id}",
-        "metadata_procedures_timeout": 60
+        "metadata_subject_path": "{session_folder}\\subject.json"
       }
     },
     {
       "module_type": "launcher_module",
       "module_path": "metadata_project_validator",
       "module_parameters": {
-        "metadata_project_name": "Ophys Platform - SLAP2"
+        "metadata_project_name": "Ophys Platform - SLAP2",
+        "metadata_project_path": "{session_folder}\\project.json"
+      }
+    },
+    {
+      "module_type": "launcher_module",
+      "module_path": "wait_for_user_input",
+      "module_parameters": {
+        "prompt": "Pause before launching Bonsai. Verify rig is ready, then press Enter."
       }
     }
   ],
@@ -65,13 +67,15 @@
       "module_path": "experiment_notes_finalize",
       "module_parameters": {
         "experiment_notes_filename": "{session_folder}\\notes\\experiment_notes.txt",
-        "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; press Enter to finish."
+        "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; type 'yes' to finish.",
+        "experiment_notes_autoclose_editor": true
       }
     },
     {
       "module_type": "launcher_module",
       "module_path": "session_archiver",
       "module_parameters": {
+        "session_dir": "{session_folder}",
         "network_dir": "\\\\allen\\aind\\scratch\\ophys\\Andrew\\VIP_synaptic_dynamics\\{subject_id}\\{session_uuid}\\behavior",
         "backup_dir": "C:\\BonsaiDataDoC\\Archive\\{subject_id}\\{session_uuid}\\behavior"
       }

@@ -12,8 +12,8 @@ class Parameters(BaseModel):
 
     experiment_notes_filename: str | None = Field(
         default=None,
-        description="Relative path (inside the session folder) for the notes file.",
-        examples=["notes/experiment_notes.txt"],
+        description="Path to the notes file (absolute or placeholder-expanded).",
+        examples=["{session_folder}/notes/experiment_notes.txt"],
     )
     experiment_notes_encoding: str = Field(
         default="utf-8",
@@ -30,4 +30,8 @@ class Parameters(BaseModel):
     experiment_notes_editor_args: Union[str, list[str], None] = Field(
         default=None,
         description="Additional args (string) or argv list.",
+    )
+    experiment_notes_autoclose_editor: bool | None = Field(
+        default=None,
+        description="Optional pass-through to finalize step; when true finalize will attempt to close the editor PID recorded in the notes header.",
     )

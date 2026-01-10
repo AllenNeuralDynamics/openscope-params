@@ -25,16 +25,16 @@ class Parameters(BaseModel):
         description="Default depth suggested to operator per meta file.",
     )
     dynamic_dir: str = Field(
-        default="slap2/dynamic_data",
-        description="Relative destination for dynamic acquisition files.",
+        default="dynamic_data",
+        description="Relative destination for dynamic acquisition files (under session folder).",
     )
     structure_dir: str = Field(
-        default="slap2/structure_stack",
-        description="Relative destination for structure stack files.",
+        default="structure_stack",
+        description="Relative destination for structure stack files (under session folder).",
     )
     ref_stack_dir: str = Field(
-        default="slap2/dynamic_data/reference_stack",
-        description="Relative destination for reference stack files.",
+        default="dynamic_data/reference_stack",
+        description="Relative destination for reference stack files (under session folder).",
     )
     manifest_name: str = Field(
         default="routing_manifest.json",

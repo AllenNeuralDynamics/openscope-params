@@ -1,5 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
+    "launcher_version": ">=0.2.10,<0.3",
     "launcher": "bonsai",
     "repository_url": "https://github.com/AllenNeuralDynamics/openscope-community-predictive-processing.git",
     "repository_commit_hash": "17867095c5d0b7aba62e21f1884a68beb65054c7",
@@ -52,17 +53,16 @@
         },
         {
             "module_type": "launcher_module",
-            "module_path": "metadata_procedures_fetch",
+            "module_path": "metadata_project_validator",
             "module_parameters": {
-                "metadata_subject_id": "{subject_id}",
-                "metadata_procedures_timeout": 60
+                "metadata_project_name": "Ophys Platform - SLAP2"
             }
         },
         {
             "module_type": "launcher_module",
-            "module_path": "metadata_project_validator",
+            "module_path": "wait_for_user_input",
             "module_parameters": {
-                "metadata_project_name": "Ophys Platform - SLAP2"
+                "prompt": "Pause before launching Bonsai. Verify rig is ready, then press Enter."
             }
         }
     ],
