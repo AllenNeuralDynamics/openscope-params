@@ -1,25 +1,16 @@
-{
-  "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
-  "launcher_version": ">=0.2.7",
-  "launcher": "matlab",
-
-  "subject_id": "mouse123",
-  "user_id": "local_operator",
-
-  "output_root_folder": "C:/OpenScopeLocalSessions",
-  "matlab_engine_name": "slap2_launcher",
-  "matlab_entrypoint": "slap2_launcher",
-
-  "script_parameters": {
-    "rig_description_path": "C:/RigConfig/currentRigDescription.json"
-  },
-
-  "pre_acquisition_pipeline": [],
-  "post_acquisition_pipeline": [],
-
-  "description": "Example configuration for exercising the MATLAB shared-engine launcher locally."
-}
-
-
-
-
+{
+  "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
+  "launcher_version": ">=0.2.7",
+  "launcher": "matlab",
+  "subject_id": "mouse123",
+  "user_id": "local_operator",
+  "output_root_folder": "C:/OpenScopeLocalSessions",
+  "matlab_engine_name": "slap2_launcher",
+  "matlab_entrypoint": "slap2_launcher",
+  "script_parameters": {
+    "rig_description_path": "C:/RigConfig/currentRigDescription.json"
+  },
+  "pre_acquisition_pipeline": [],
+  "post_acquisition_pipeline": [],
+  "description": "Example configuration for exercising the MATLAB shared-engine launcher locally."
+}

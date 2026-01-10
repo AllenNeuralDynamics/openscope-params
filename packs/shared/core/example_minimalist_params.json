@@ -1,27 +1,22 @@
-{
-  "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
-  "launcher_version": ">=0.2.7",
-  "launcher": "base",
-  "subject_id": "test_subject",
-  "user_id": "test_user",
-
-  "pre_acquisition_pipeline": [
-    "example_pre_acquisition_module"
-  ],
-  "post_acquisition_pipeline": [
-    "example_post_acquisition_module"
-  ],
-
-  "script_path": "echo",
-  "collect_mouse_runtime_data": true,
-  "output_root_folder": "C:/temp/minimalist_test",
-
-  "protocol_id": ["test_protocol_001"],
-  "mouse_platform_name": "test_platform",
-  "active_mouse_platform": true,
-  "description": "Minimalist test of BaseLauncher functionality"
-}
-
-
-
-
+{
+  "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
+  "launcher_version": ">=0.2.7",
+  "launcher": "base",
+  "subject_id": "test_subject",
+  "user_id": "test_user",
+  "pre_acquisition_pipeline": [
+    "example_pre_acquisition_module"
+  ],
+  "post_acquisition_pipeline": [
+    "example_post_acquisition_module"
+  ],
+  "script_path": "echo",
+  "collect_mouse_runtime_data": true,
+  "output_root_folder": "C:/temp/minimalist_test",
+  "protocol_id": [
+    "test_protocol_001"
+  ],
+  "mouse_platform_name": "test_platform",
+  "active_mouse_platform": true,
+  "description": "Minimalist test of BaseLauncher functionality"
+}
