@@ -14,12 +14,6 @@
       "description": "Session folder to scan and annotate (defaults to output_session_folder).",
       "title": "Source Dir"
     },
-    "dry_run": {
-      "default": true,
-      "description": "If true, only log intended moves/annotations without modifying files.",
-      "title": "Dry Run",
-      "type": "boolean"
-    },
     "assume_yes": {
       "default": false,
       "description": "If true, skip interactive confirmations and use defaults.",
@@ -39,28 +33,41 @@
       "type": "string"
     },
     "dynamic_dir": {
-      "default": "slap2/dynamic_data",
-      "description": "Relative destination for dynamic acquisition files.",
+      "default": "dynamic_data",
+      "description": "Relative destination for dynamic acquisition files (under session folder).",
       "title": "Dynamic Dir",
       "type": "string"
     },
     "structure_dir": {
-      "default": "slap2/structure_stack",
-      "description": "Relative destination for structure stack files.",
+      "default": "structure_stack",
+      "description": "Relative destination for structure stack files (under session folder).",
       "title": "Structure Dir",
       "type": "string"
     },
     "ref_stack_dir": {
-      "default": "slap2/dynamic_data/reference_stack",
-      "description": "Relative destination for reference stack files.",
+      "default": "dynamic_data/reference_stack",
+      "description": "Relative destination for reference stack files (under session folder).",
       "title": "Ref Stack Dir",
       "type": "string"
     },
     "manifest_name": {
-      "default": "slap2_meta_manifest.json",
+      "default": "routing_manifest.json",
       "description": "Filename for the routing/annotation manifest (written under launcher_metadata).",
       "title": "Manifest Name",
       "type": "string"
+    },
+    "manifest_path": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Optional manifest path (absolute or relative to session folder) to override the default under launcher_metadata.",
+      "title": "Manifest Path"
     }
   },
   "title": "Module Parameters: slap2_meta_annotator (Pydantic)",

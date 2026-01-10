@@ -11,9 +11,9 @@
         }
       ],
       "default": null,
-      "description": "Relative path (inside the session folder) for the notes file.",
+      "description": "Path to the notes file (absolute or placeholder-expanded).",
       "examples": [
-        "notes/experiment_notes.txt"
+        "{session_folder}/notes/experiment_notes.txt"
       ],
       "title": "Experiment Notes Filename"
     },
@@ -24,7 +24,7 @@
       "type": "string"
     },
     "experiment_notes_preview": {
-      "default": false,
+      "default": true,
       "description": "If true, print a preview of notes content to the console.",
       "title": "Experiment Notes Preview",
       "type": "boolean"
@@ -48,9 +48,15 @@
       "default": null,
       "description": "Prompt shown to the operator to confirm notes are complete.",
       "examples": [
-        "Confirm experiment notes are saved; press Enter to finish."
+        "Confirm experiment notes are saved; type 'yes' to finish."
       ],
       "title": "Experiment Notes Confirm Prompt"
+    },
+    "experiment_notes_autoclose_editor": {
+      "default": true,
+      "description": "If true, attempts to close the launched editor using the PID stored in the notes header.",
+      "title": "Experiment Notes Autoclose Editor",
+      "type": "boolean"
     }
   },
   "title": "Module Parameters: experiment_notes_finalize (Pydantic)",

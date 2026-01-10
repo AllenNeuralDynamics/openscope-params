@@ -2,17 +2,9 @@
   "additionalProperties": true,
   "properties": {
     "session_dir": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "null"
-        }
-      ],
-      "default": null,
-      "description": "Source session directory to archive (defaults to launcher session folder if omitted).",
-      "title": "Session Dir"
+      "description": "Source session directory to archive (required; typically {output_session_folder}).",
+      "title": "Session Dir",
+      "type": "string"
     },
     "network_dir": {
       "anyOf": [
@@ -52,6 +44,19 @@
       "default": null,
       "description": "Optional path to a manifest file describing what was archived.",
       "title": "Manifest Path"
+    },
+    "routing_manifest": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Optional path to a routing manifest produced by pre-archiver modules (e.g., slap2_meta_annotator).",
+      "title": "Routing Manifest"
     },
     "include_patterns": {
       "anyOf": [
@@ -130,6 +135,9 @@
       "type": "boolean"
     }
   },
+  "required": [
+    "session_dir"
+  ],
   "title": "Module Parameters: session_archiver (Pydantic)",
   "type": "object",
   "$schema": "https://json-schema.org/draft/2020-12/schema",

@@ -11,9 +11,9 @@
         }
       ],
       "default": null,
-      "description": "Relative path (inside the session folder) for the notes file.",
+      "description": "Path to the notes file (absolute or placeholder-expanded).",
       "examples": [
-        "notes/experiment_notes.txt"
+        "{session_folder}/notes/experiment_notes.txt"
       ],
       "title": "Experiment Notes Filename"
     },
@@ -66,6 +66,19 @@
       "default": null,
       "description": "Additional args (string) or argv list.",
       "title": "Experiment Notes Editor Args"
+    },
+    "experiment_notes_autoclose_editor": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Optional pass-through to finalize step; when true finalize will attempt to close the editor PID recorded in the notes header.",
+      "title": "Experiment Notes Autoclose Editor"
     }
   },
   "title": "Module Parameters: experiment_notes_editor (Pydantic)",
