@@ -1,35 +1,35 @@
-﻿{
-  "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
-  "launcher_version": ">=0.2.7",
-  "launcher": "base",
-
-  "subject_id": "notes_demo_mouse",
-  "user_id": "notes_tester",
-
-  "output_root_folder": "./test_sessions",
-
-  "pre_acquisition_pipeline": [
-    {
-      "module_type": "launcher_module",
-      "module_path": "experiment_notes_editor",
-      "module_parameters": {
-        "experiment_notes_launch_editor": true,
-        "experiment_notes_filename": "notes/experiment_notes.txt"
-      }
-    }
-  ],
-  "post_acquisition_pipeline": [
-    {
-      "module_type": "launcher_module",
-      "module_path": "experiment_notes_finalize",
-      "module_parameters": {
-        "experiment_notes_filename": "notes/experiment_notes.txt",
-        "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; press Enter to finish."
-      }
-    }
-  ]
-}
-
-
-
-
+{
+  "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
+  "launcher_version": ">=0.2.7",
+  "launcher": "base",
+
+  "subject_id": "notes_demo_mouse",
+  "user_id": "notes_tester",
+
+  "output_root_folder": "./test_sessions",
+
+  "pre_acquisition_pipeline": [
+    {
+      "module_type": "launcher_module",
+      "module_path": "experiment_notes_editor",
+      "module_parameters": {
+        "experiment_notes_launch_editor": true,
+        "experiment_notes_filename": "notes/experiment_notes.txt"
+      }
+    }
+  ],
+  "post_acquisition_pipeline": [
+    {
+      "module_type": "launcher_module",
+      "module_path": "experiment_notes_finalize",
+      "module_parameters": {
+        "experiment_notes_filename": "notes/experiment_notes.txt",
+        "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; press Enter to finish."
+      }
+    }
+  ]
+}
+
+
+
+
