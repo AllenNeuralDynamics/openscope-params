@@ -16,7 +16,6 @@
   "script_parameters": {
     "Path": "stimuli\\images_B",
     "PortName": "{rig_param:COM_port}",
-    "RootFolder": "{output_session_folder}",
     "Subject": "{subject_id}",
     "ValveOpenTime": 80,
     "DueTime": "00:30:00"
