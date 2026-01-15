@@ -75,10 +75,26 @@
     },
     {
       "module_type": "launcher_module",
+      "module_path": "slap2_behavior_annotator",
+      "module_parameters": {
+        "manifest_path": "{output_session_folder}\\launcher_metadata\\routing_manifest.json",
+        "device_name": "VCO1_Behavior"
+      }
+    },
+    {
+      "module_type": "launcher_module",
+      "module_path": "slap2_stimuli_p3_annotator",
+      "module_parameters": {
+        "manifest_path": "{output_session_folder}\\launcher_metadata\\routing_manifest.json"
+      }
+    },
+    {
+      "module_type": "launcher_module",
       "module_path": "experiment_notes_finalize",
       "module_parameters": {
         "experiment_notes_filename": "{output_session_folder}\\notes\\experiment_notes.txt",
-        "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; press Enter to finish."
+        "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; press Enter to finish.",
+        "manifest_path": "{output_session_folder}\\launcher_metadata\\routing_manifest.json"
       }
     },
     {

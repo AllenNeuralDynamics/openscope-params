@@ -20,9 +20,13 @@ class Parameters(BaseModel):
         default="VISp",
         description="Default brain area suggested to operator per meta file.",
     )
-    default_depth: str = Field(
-        default="unknown",
-        description="Default depth suggested to operator per meta file.",
+    default_dmd1_depth: str = Field(
+        default="",
+        description="Depth (microns from surface) for DMD1 acquisitions; used for all DMD1 files.",
+    )
+    default_dmd2_depth: str = Field(
+        default="",
+        description="Depth (microns from surface) for DMD2 acquisitions; used for all DMD2 files.",
     )
     dynamic_dir: str = Field(
         default="dynamic_data",

@@ -35,7 +35,8 @@
       "module_path": "experiment_notes_finalize",
       "module_parameters": {
         "experiment_notes_filename": "{output_session_folder}\\notes\\experiment_notes.txt",
-        "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; press Enter to finish."
+        "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; press Enter to finish.",
+        "manifest_path": "{output_session_folder}\\launcher_metadata\\routing_manifest.json"
       }
     },
     {
