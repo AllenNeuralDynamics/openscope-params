@@ -3,7 +3,7 @@
   "launcher_version": ">=0.2.7",
   "launcher": "bonsai",
   "repository_url": "https://github.com/AllenNeuralDynamics/Aind.Behavior.ChangeDetection.git",
-  "repository_commit_hash": "2722a77441bd3d695d9e8ab7e206da68dc4d931c",
+  "repository_commit_hash": "1246f83567c607c7101bbc729baadc5079c4b81c",
   "local_repository_path": "C:/BonsaiDataDoC/Code",
   "script_path": "src/DetectionOfChange_with_template_and_mpe_comp.bonsai",
   "bonsai_exe_path": "bonsai/Bonsai.exe",
@@ -18,7 +18,7 @@
     "PortName": "{rig_param:COM_port}",
     "Subject": "{subject_id}",
     "ValveOpenTime": 80,
-    "DueTime": "00:30:00"
+    "DueTime": "00:00:10"
   },
   "pre_acquisition_pipeline": [
     {
@@ -56,6 +56,21 @@
   "post_acquisition_pipeline": [
     {
       "module_type": "launcher_module",
+      "module_path": "slap2_behaviorvideo_annotator",
+      "module_parameters": {
+        "manifest_path": "{output_session_folder}\\launcher_metadata\\routing_manifest.json"
+      }
+    },
+    {
+      "module_type": "launcher_module",
+      "module_path": "slap2_behavior_annotator",
+      "module_parameters": {
+        "manifest_path": "{output_session_folder}\\launcher_metadata\\routing_manifest.json",
+        "device_name": "VCO1_Behavior"
+      }
+    },
+    {
+      "module_type": "launcher_module",
       "module_path": "experiment_notes_finalize",
       "module_parameters": {
         "experiment_notes_filename": "{output_session_folder}\\notes\\experiment_notes.txt",
@@ -69,7 +84,8 @@
       "module_parameters": {
         "session_dir": "{output_session_folder}",
         "network_dir": "\\\\allen\\aind\\scratch\\ophys\\Andrew\\VIP_synaptic_dynamics\\{subject_id}\\{session_uuid}\\behavior",
-        "backup_dir": "C:\\BonsaiDataDoC\\Archive\\{subject_id}\\{session_uuid}\\behavior"
+        "backup_dir": "C:\\BonsaiDataDoC\\Archive\\{subject_id}\\{session_uuid}\\behavior",
+        "routing_manifest": "{output_session_folder}\\launcher_metadata\\routing_manifest.json"
       }
     }
   ]
