@@ -56,13 +56,6 @@
   "post_acquisition_pipeline": [
     {
       "module_type": "launcher_module",
-      "module_path": "slap2_behaviorvideo_annotator",
-      "module_parameters": {
-        "manifest_path": "{output_session_folder}\\launcher_metadata\\routing_manifest.json"
-      }
-    },
-    {
-      "module_type": "launcher_module",
       "module_path": "slap2_behavior_annotator",
       "module_parameters": {
         "manifest_path": "{output_session_folder}\\launcher_metadata\\routing_manifest.json",
