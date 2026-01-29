@@ -42,6 +42,7 @@
       "module_type": "launcher_module",
       "module_path": "session_archiver",
       "module_parameters": {
+        "session_dir": "{output_session_folder}",
         "network_dir": "\\\\allen\\aind\\scratch\\ophys\\Andrew\\VIP_synaptic_dynamics\\{subject_id}\\{session_uuid}\\slap2",
         "backup_dir": "C:\\BonsaiDataDoC\\Archive\\{subject_id}\\{session_uuid}\\slap2",
         "routing_manifest": "{output_session_folder}\\launcher_metadata\\routing_manifest.json",
