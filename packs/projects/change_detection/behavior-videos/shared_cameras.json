@@ -43,7 +43,6 @@
         "module_parameters": {
           "output_session_folder": "{output_session_folder}",
           "behavior_videos_root": "behavior-videos",
-          "behavior_videos_destination": "{output_session_folder}/behavior-videos",
           "behavior_videos_prune_empty": true,
           "behavior_videos_copy_only": false
         }
