@@ -3,7 +3,7 @@
   "launcher_version": ">=0.2.7",
   "launcher": "bonsai",
   "repository_url": "https://github.com/AllenNeuralDynamics/Aind.Behavior.ChangeDetection.git",
-  "repository_commit_hash": "f95e60d29ac1e3a9c5affc7d087c79d592eabd48",
+  "repository_commit_hash": "0cf01096e6f986151c3d2bef8aba5305f77acf62",
   "local_repository_path": "C:/BonsaiDataDoC/Code",
   "script_path": "src/DetectionOfChange_with_template_and_mpe_comp.bonsai",
   "bonsai_exe_path": "bonsai/Bonsai.exe",
@@ -11,7 +11,7 @@
   "output_root_folder": "C:/BonsaiDataDoC/Data/session_data",
   "session_sync_role": "master",
   "session_sync_port": 50001,
-  "session_sync_expected_slaves": 1,
+  "session_sync_expected_slaves": 2,
   "session_sync_bind_host": "0.0.0.0",
   "script_parameters": {
     "Path": "stimuli\\images_H",
