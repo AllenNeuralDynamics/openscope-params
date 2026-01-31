@@ -49,7 +49,8 @@
         "routing_manifest": "{output_session_folder}\\launcher_metadata\\routing_manifest.json",
         "remove_empty_dirs": false,
         "skip_completed": true,
-        "max_retries": 3
+        "max_retries": 3,
+        "copy_to_backup": false
       }
     }
   ]
