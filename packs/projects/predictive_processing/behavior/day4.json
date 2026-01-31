@@ -55,7 +55,8 @@
       "module_type": "launcher_module",
       "module_path": "metadata_project_validator",
       "module_parameters": {
-        "metadata_project_name": "Ophys Platform - SLAP2"
+        "metadata_project_name": "Ophys Platform - SLAP2",
+        "protocol_id": 2415
       }
     },
     {

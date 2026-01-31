@@ -43,7 +43,8 @@
       "module_path": "metadata_project_validator",
       "module_parameters": {
         "metadata_project_name": "Ophys Platform - SLAP2",
-        "metadata_project_path": "{output_session_folder}\\project.json"
+        "metadata_project_path": "{output_session_folder}\\project.json",
+        "protocol_id": 2415
       }
     },
     {
