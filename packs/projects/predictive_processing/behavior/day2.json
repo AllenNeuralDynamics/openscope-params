@@ -2,6 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
   "launcher_version": ">=0.2.7",
   "launcher": "bonsai",
+  "protocol_id": 2415,
   "repository_url": "https://github.com/AllenNeuralDynamics/openscope-community-predictive-processing.git",
   "repository_commit_hash": "66a8a92ce09bab00557350393e4e39505cc520bd",
   "local_repository_path": "C:/BonsaiDataPredictiveProcessing/Code",

@@ -2,6 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
   "launcher_version": ">=0.2.7",
   "launcher": "bonsai",
+  "protocol_id": 2415,
   "repository_url": "https://github.com/AllenNeuralDynamics/ophys-passive-visual-stim.git",
   "repository_commit_hash": "6bf3318e7ad352485a905a9ffea5cfaea3806885",
   "local_repository_path": "C:/BonsaiDataDoC/Code",
