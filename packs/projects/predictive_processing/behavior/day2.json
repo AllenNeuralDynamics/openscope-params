@@ -12,7 +12,7 @@
   "output_root_folder": "C:/BonsaiDataPredictiveProcessing",
   "session_sync_role": "master",
   "session_sync_port": 50001,
-  "session_sync_expected_slaves": 1,
+  "session_sync_expected_slaves": 2,
   "session_sync_bind_host": "0.0.0.0",
   "script_parameters": {
     "stimulus_table_path": "{output_session_folder}\\predictive_processing_session.csv",
@@ -56,6 +56,7 @@
       "module_path": "metadata_project_validator",
       "module_parameters": {
         "metadata_project_name": "Ophys Platform - SLAP2",
+        "metadata_project_path": "{output_session_folder}\\project.json",
         "protocol_id": 2415
       }
     },
@@ -95,7 +96,8 @@
       "module_path": "experiment_notes_finalize",
       "module_parameters": {
         "experiment_notes_filename": "{output_session_folder}\\notes\\experiment_notes.txt",
-        "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; press Enter to finish.",
+        "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; type 'yes' to finish.",
+        "experiment_notes_autoclose_editor": true,
         "manifest_path": "{output_session_folder}\\launcher_metadata\\routing_manifest.json"
       }
     },
