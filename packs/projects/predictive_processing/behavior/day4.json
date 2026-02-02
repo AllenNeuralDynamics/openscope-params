@@ -4,7 +4,7 @@
   "launcher": "bonsai",
   "protocol_id": 2415,
   "repository_url": "https://github.com/AllenNeuralDynamics/openscope-community-predictive-processing.git",
-  "repository_commit_hash": "66a8a92ce09bab00557350393e4e39505cc520bd",
+  "repository_commit_hash": "c655ea23fc31a251f158e3f50b93b5038cf79d99",
   "local_repository_path": "C:/BonsaiDataPredictiveProcessing/Code",
   "script_path": "code/stimulus-control/src/Mindscope/generic_oddball_slap2.bonsai",
   "bonsai_exe_path": "code/stimulus-control/bonsai/Bonsai.exe",
@@ -17,7 +17,6 @@
   "script_parameters": {
     "stimulus_table_path": "{output_session_folder}\\predictive_processing_session.csv",
     "PortName": "{rig_param:COM_port}",
-    "RecordCameras": "{rig_param:RecordCameras}",
     "Subject": "{subject_id}",
     "DisplayDeviceIndex": "{rig_param:DisplayDeviceIndex}",
     "WindowStateIndex": "{rig_param:WindowStateIndex}",
@@ -30,7 +29,7 @@
       "module_parameters": {
         "function": "generate_single_session_csv",
         "function_args": {
-          "session_type": "duration_mismatch",
+          "session_type": "duration_mismatch_long_zebra",
           "seed": 42,
           "output_path": "{output_session_folder}\\predictive_processing_session.csv"
         }
@@ -98,8 +97,7 @@
       "module_parameters": {
         "experiment_notes_filename": "{output_session_folder}\\notes\\experiment_notes.txt",
         "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; type 'yes' to finish.",
-        "experiment_notes_autoclose_editor": true,
-        "manifest_path": "{output_session_folder}\\launcher_metadata\\routing_manifest.json"
+        "experiment_notes_autoclose_editor": true
       }
     },
     {
