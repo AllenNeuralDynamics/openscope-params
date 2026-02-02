@@ -48,7 +48,8 @@
       "module_type": "launcher_module",
       "module_path": "metadata_subject_fetch",
       "module_parameters": {
-        "metadata_subject_id": "{subject_id}"
+        "metadata_subject_id": "{subject_id}",
+        "metadata_subject_path": "{output_session_folder}\\subject.json"
       }
     },
     {
