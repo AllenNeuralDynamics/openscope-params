@@ -1,0 +1,80 @@
+{
+  "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
+  "launcher_version": ">=0.2.7",
+  "launcher": "bonsai",
+  "protocol_id": 2415,
+  "repository_url": "https://github.com/AllenNeuralDynamics/ophys-passive-visual-stim.git",
+  "repository_commit_hash": "6bf3318e7ad352485a905a9ffea5cfaea3806885",
+  "local_repository_path": "C:/BonsaiData/scbc/behavior/Code",
+  "script_path": "src/random_drifting_gratings.bonsai",
+  "bonsai_exe_path": "bonsai/Bonsai.exe",
+  "bonsai_setup_script": "bonsai/setup.cmd",
+  "output_root_folder": "C:/BonsaiDataDoC/Data/session_data",
+  "session_sync_role": "master",
+  "session_sync_port": 50001,
+  "session_sync_expected_slaves": 2,
+  "session_sync_bind_host": "0.0.0.0",
+  "script_parameters": {
+    "stimulus_table_path": "{output_session_folder}\\predictive_processing_session.csv",
+    "PortName": "{rig_param:COM_port}",
+    "Subject": "{subject_id}",
+    "DisplayDeviceIndex": "{rig_param:DisplayDeviceIndex}",
+    "WindowStateIndex": "{rig_param:WindowStateIndex}",
+    "stimulus_table_duration": "02:00:00"
+  },
+  "pre_acquisition_pipeline": [
+    {
+      "module_type": "launcher_module",
+      "module_path": "experiment_notes_editor",
+      "module_parameters": {
+        "experiment_notes_launch_editor": true,
+        "experiment_notes_filename": "{output_session_folder}\\notes\\experiment_notes.txt"
+      }
+    },
+    {
+      "module_type": "launcher_module",
+      "module_path": "metadata_subject_fetch",
+      "module_parameters": {
+        "metadata_subject_id": "{subject_id}",
+        "metadata_subject_path": "{output_session_folder}\\subject.json"
+      }
+    },
+    {
+      "module_type": "launcher_module",
+      "module_path": "metadata_project_validator",
+      "module_parameters": {
+        "metadata_project_name": "Ophys Platform - SLAP2",
+        "metadata_project_path": "{output_session_folder}\\project.json",
+        "protocol_id": 2415
+      }
+    },
+    {
+      "module_type": "launcher_module",
+      "module_path": "wait_for_user_input",
+      "module_parameters": {
+        "prompt": "Pause before launching Bonsai. Verify rig is ready, then press Enter."
+      }
+    }
+  ],
+  "post_acquisition_pipeline": [
+    {
+      "module_type": "launcher_module",
+      "module_path": "experiment_notes_finalize",
+      "module_parameters": {
+        "experiment_notes_filename": "{output_session_folder}\\notes\\experiment_notes.txt",
+        "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; type 'yes' to finish.",
+        "experiment_notes_autoclose_editor": true
+      }
+    },
+    {
+      "module_type": "launcher_module",
+      "module_path": "session_archiver",
+      "module_parameters": {
+        "session_dir": "{output_session_folder}",
+        "network_dir": "\\\\allen\\aind\\scratch\\OpenScope\\Slap2\\Data\\{subject_id}\\{session_uuid}\\behavior",
+        "backup_dir": "C:\\BonsaiDataPredictiveProcessing\\Archive\\{subject_id}\\{session_uuid}\\behavior",
+        "routing_manifest": "{output_session_folder}\\launcher_metadata\\routing_manifest.json"
+      }
+    }
+  ]
+}
