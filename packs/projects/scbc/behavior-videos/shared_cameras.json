@@ -4,12 +4,12 @@
   "launcher": "bonsai",
   "protocol_id": 2415,
   "repository_url": "https://github.com/AllenNeuralDynamics/ophys-passive-visual-stim.git",
-  "repository_commit_hash": "6bf3318e7ad352485a905a9ffea5cfaea3806885",
-  "local_repository_path": "C:/BonsaiDataPredictiveProcessing/Code",
+  "repository_commit_hash": "main",
+  "local_repository_path": "C:/BonsaiData/scbc/behavior-videos/Code",
   "script_path": "src/SpinnakerTriggeredCapture.bonsai",
   "bonsai_exe_path": "bonsai/Bonsai.exe",
   "bonsai_setup_script": "bonsai/setup.cmd",
-  "output_root_folder": "C:/BonsaiDataPredictiveProcessing/Data/video_data",
+  "output_root_folder": "C:/BonsaiData/scbc/behavior-videos/session_data",
   "session_sync_role": "slave",
   "session_sync_port": 50001,
   "session_sync_master_host": "10.128.53.175",
@@ -19,7 +19,8 @@
     "ExposureTimeEye": 20000,
     "FrameRateBody": 30,
     "FrameRateFace": 30,
-    "FrameRateEye": 30
+    "FrameRateEye": 30,
+    "SessionPathOverride": "{output_session_folder}"
   },
   "pre_acquisition_pipeline": [
     {
@@ -41,21 +42,11 @@
   "post_acquisition_pipeline": [
     {
       "module_type": "launcher_module",
-      "module_path": "behavior_videos_flatten",
-      "module_parameters": {
-        "output_session_folder": "{output_session_folder}",
-        "behavior_videos_root": "behavior-videos",
-        "behavior_videos_prune_empty": true,
-        "behavior_videos_copy_only": false
-      }
-    },
-    {
-      "module_type": "launcher_module",
       "module_path": "session_archiver",
       "module_parameters": {
         "session_dir": "{output_session_folder}",
-        "network_dir": "\\\\allen\\aind\\scratch\\OpenScope\\Slap2\\Data\\{subject_id}\\{session_uuid}\\behavior-videos",
-        "backup_dir": "C:\\BonsaiDataPredictiveProcessing\\Archive\\{subject_id}\\{session_uuid}\\behavior-videos",
+        "network_dir": "\\\\allen\\aind\\scratch\\ophys\\SLAP2\\exp data\\Mice\\{subject_id}\\{session_uuid}",
+        "backup_dir": "C:\\BonsaiData\\archive\\{subject_id}\\{session_uuid}",
         "routing_manifest": "{output_session_folder}\\launcher_metadata\\routing_manifest.json"
       }
     }
