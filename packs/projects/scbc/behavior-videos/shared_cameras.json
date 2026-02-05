@@ -13,6 +13,7 @@
   "session_sync_role": "slave",
   "session_sync_port": 50001,
   "session_sync_master_host": "10.128.53.175",
+  "modality": "behavior-videos",
   "script_parameters": {
     "ExposureTimeBody": 10000,
     "ExposureTimeFace": 20000,
@@ -45,9 +46,8 @@
       "module_path": "session_archiver",
       "module_parameters": {
         "session_dir": "{output_session_folder}",
-        "network_dir": "\\\\allen\\aind\\scratch\\ophys\\SLAP2\\exp data\\Mice\\{subject_id}\\{session_uuid}",
-        "backup_dir": "C:\\BonsaiData\\archive\\{subject_id}\\{session_uuid}",
-        "routing_manifest": "{output_session_folder}\\launcher_metadata\\routing_manifest.json"
+        "network_dir": "\\\\allen\\aind\\scratch\\ophys\\SLAP2\\exp data\\Mice\\{subject_id}\\{session_uuid}\\{modality}",
+        "backup_dir": "C:\\BonsaiData\\archive\\{subject_id}\\{session_uuid}\\{modality}"
       }
     }
   ]

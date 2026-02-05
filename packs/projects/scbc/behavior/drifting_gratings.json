@@ -14,11 +14,12 @@
   "session_sync_port": 50001,
   "session_sync_expected_slaves": 1,
   "session_sync_bind_host": "0.0.0.0",
+  "modality": "behavior",
   "script_parameters": {
     "DeviceName": "VCO1_Behavior",
     "GratingTrialParametersFile": "ParameterFiles/8_direction_drifting_grating_params.csv",
     "Initial Spont Int": "00:00:28",
-    "Num Trials": "1",
+    "Num Trials": "40",
     "PortName": "{rig_param:COM_port}",
     "Screen_BlueColor (0-1)": 1,
     "Screen_GreenColor (0-1)": 1,
@@ -75,9 +76,8 @@
       "module_path": "session_archiver",
       "module_parameters": {
         "session_dir": "{output_session_folder}",
-        "network_dir": "\\\\allen\\aind\\scratch\\ophys\\SLAP2\\exp data\\Mice\\{subject_id}\\{session_uuid}",
-        "backup_dir": "C:\\BonsaiData\\archive\\{subject_id}\\{session_uuid}",
-        "routing_manifest": "{output_session_folder}\\launcher_metadata\\routing_manifest.json"
+        "network_dir": "\\\\allen\\aind\\scratch\\ophys\\SLAP2\\exp data\\Mice\\{subject_id}\\{session_uuid}\\{modality}",
+        "backup_dir": "C:\\BonsaiData\\archive\\{subject_id}\\{session_uuid}\\{modality}"
       }
     }
   ]
