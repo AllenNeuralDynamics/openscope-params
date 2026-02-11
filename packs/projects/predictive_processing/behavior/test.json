@@ -20,7 +20,7 @@
     "Subject": "{subject_id}",
     "DisplayDeviceIndex": "{rig_param:DisplayDeviceIndex}",
     "WindowStateIndex": "{rig_param:WindowStateIndex}",
-    "stimulus_table_duration": "02:00:00"
+    "stimulus_table_duration": "00:01:00"
   },
   "pre_acquisition_pipeline": [
     {
@@ -29,7 +29,7 @@
       "module_parameters": {
         "function": "generate_single_session_csv",
         "function_args": {
-          "session_type": "sensorimotor_mismatch_long_zebra",
+          "session_type": "duration_mismatch_long_zebra",
           "seed": 42,
           "output_path": "{output_session_folder}\\predictive_processing_session.csv"
         }
