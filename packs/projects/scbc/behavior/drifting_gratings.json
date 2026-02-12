@@ -22,8 +22,8 @@
     "Num Trials": "40",
     "PortName": "{rig_param:COM_port}",
     "Screen_BlueColor (0-1)": 1,
-    "Screen_GreenColor (0-1)": 1,
-    "Screen_RedColor (0-1)": 1,
+    "Screen_GreenColor (0-1)": 0,
+    "Screen_RedColor (0-1)": 0,
     "SessionPathOverride": "{output_session_folder}",
     "Subject": "{subject_id}"
   },
