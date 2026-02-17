@@ -20,6 +20,19 @@ class Parameters(BaseModel):
         default="VISp",
         description="Default brain area suggested to operator per meta file.",
     )
+
+    default_green_channel_target: str | None = Field(
+        default=None,
+        description="Default Intended Green Channel Target (asked once per experiment if not provided).",
+    )
+    default_red_channel_target: str | None = Field(
+        default=None,
+        description="Default Intended Red Channel Target (asked once per experiment if not provided).",
+    )
+    default_slap2_mode: str | None = Field(
+        default=None,
+        description="Default SLAP2 mode (asked once per acquisition / meta pair if not provided).",
+    )
     default_dmd1_depth: str = Field(
         default="",
         description="Depth (microns from surface) for DMD1 acquisitions; used for all DMD1 files.",

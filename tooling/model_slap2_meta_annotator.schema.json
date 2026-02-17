@@ -26,6 +26,45 @@
       "title": "Default Brain Area",
       "type": "string"
     },
+    "default_green_channel_target": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Default Intended Green Channel Target (asked once per experiment if not provided).",
+      "title": "Default Green Channel Target"
+    },
+    "default_red_channel_target": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Default Intended Red Channel Target (asked once per experiment if not provided).",
+      "title": "Default Red Channel Target"
+    },
+    "default_slap2_mode": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Default SLAP2 mode (asked once per acquisition / meta pair if not provided).",
+      "title": "Default Slap2 Mode"
+    },
     "default_depth": {
       "default": "unknown",
       "description": "Default depth suggested to operator per meta file.",
