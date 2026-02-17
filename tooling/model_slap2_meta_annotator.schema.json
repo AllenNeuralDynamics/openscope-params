@@ -20,11 +20,30 @@
       "title": "Assume Yes",
       "type": "boolean"
     },
-    "default_brain_area": {
+    "default_targeted_structure": {
       "default": "VISp",
-      "description": "Default brain area suggested to operator per meta file.",
-      "title": "Default Brain Area",
+      "description": "Default targeted structure (Allen CCF acronym) suggested to operator per meta file.",
+      "title": "Default Targeted Structure",
       "type": "string"
+    },
+    "validate_targeted_structure_ccf": {
+      "default": true,
+      "description": "If true, validate targeted_structure against the Allen Brain CCF structure acronym list when possible.",
+      "title": "Validate Targeted Structure Ccf",
+      "type": "boolean"
+    },
+    "default_brain_area": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "DEPRECATED. Use default_targeted_structure instead.",
+      "title": "Default Brain Area"
     },
     "default_green_channel_target": {
       "anyOf": [
@@ -65,11 +84,70 @@
       "description": "Default SLAP2 mode (asked once per acquisition / meta pair if not provided).",
       "title": "Default Slap2 Mode"
     },
-    "default_depth": {
-      "default": "unknown",
-      "description": "Default depth suggested to operator per meta file.",
-      "title": "Default Depth",
-      "type": "string"
+    "default_pia_depth_on_remote_focus_dmd1_um": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Default depth of pia on remote focus for DMD1 (microns). Used as per-file default; operator can override per .meta.",
+      "title": "Default Pia Depth On Remote Focus Dmd1 Um"
+    },
+    "default_pia_depth_on_remote_focus_dmd2_um": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Default depth of pia on remote focus for DMD2 (microns). Used as per-file default; operator can override per .meta.",
+      "title": "Default Pia Depth On Remote Focus Dmd2 Um"
+    },
+    "default_target_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Default target name (format NeuronX or FOVX) used when assume_yes is true.",
+      "title": "Default Target Name"
+    },
+    "default_dmd1_depth": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "DEPRECATED. Use default_pia_depth_on_remote_focus_dmd1_um instead.",
+      "title": "Default Dmd1 Depth"
+    },
+    "default_dmd2_depth": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "DEPRECATED. Use default_pia_depth_on_remote_focus_dmd2_um instead.",
+      "title": "Default Dmd2 Depth"
     },
     "dynamic_dir": {
       "default": "dynamic_data",

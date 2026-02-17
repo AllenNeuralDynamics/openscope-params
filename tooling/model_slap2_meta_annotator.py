@@ -16,9 +16,19 @@ class Parameters(BaseModel):
         default=False,
         description="If true, skip interactive confirmations and use defaults.",
     )
-    default_brain_area: str = Field(
+    default_targeted_structure: str = Field(
         default="VISp",
-        description="Default brain area suggested to operator per meta file.",
+        description="Default targeted structure (Allen CCF acronym) suggested to operator per meta file.",
+    )
+    validate_targeted_structure_ccf: bool = Field(
+        default=True,
+        description="If true, validate targeted_structure against the Allen Brain CCF structure acronym list when possible.",
+    )
+
+    # Back-compat (deprecated): use default_targeted_structure instead.
+    default_brain_area: str | None = Field(
+        default=None,
+        description="DEPRECATED. Use default_targeted_structure instead.",
     )
 
     default_green_channel_target: str | None = Field(
@@ -33,13 +43,29 @@ class Parameters(BaseModel):
         default=None,
         description="Default SLAP2 mode (asked once per acquisition / meta pair if not provided).",
     )
-    default_dmd1_depth: str = Field(
-        default="",
-        description="Depth (microns from surface) for DMD1 acquisitions; used for all DMD1 files.",
+
+    default_pia_depth_on_remote_focus_dmd1_um: float | None = Field(
+        default=None,
+        description="Default depth of pia on remote focus for DMD1 (microns). Used as per-file default; operator can override per .meta.",
     )
-    default_dmd2_depth: str = Field(
-        default="",
-        description="Depth (microns from surface) for DMD2 acquisitions; used for all DMD2 files.",
+    default_pia_depth_on_remote_focus_dmd2_um: float | None = Field(
+        default=None,
+        description="Default depth of pia on remote focus for DMD2 (microns). Used as per-file default; operator can override per .meta.",
+    )
+
+    default_target_name: str | None = Field(
+        default=None,
+        description="Default target name (format NeuronX or FOVX) used when assume_yes is true.",
+    )
+
+    # Back-compat (deprecated): legacy depth defaults.
+    default_dmd1_depth: str | None = Field(
+        default=None,
+        description="DEPRECATED. Use default_pia_depth_on_remote_focus_dmd1_um instead.",
+    )
+    default_dmd2_depth: str | None = Field(
+        default=None,
+        description="DEPRECATED. Use default_pia_depth_on_remote_focus_dmd2_um instead.",
     )
     dynamic_dir: str = Field(
         default="dynamic_data",
