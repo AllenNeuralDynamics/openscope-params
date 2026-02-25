@@ -15,6 +15,13 @@
   "pre_acquisition_pipeline": [
     {
       "module_type": "launcher_module",
+      "module_path": "instrument_json_fetch",
+      "module_parameters": {
+        "instrument_json_source_root": "C:/Users/ScanImage/Documents/GitHub/slap2_processing"
+      }
+    },
+    {
+      "module_type": "launcher_module",
       "module_path": "experiment_notes_editor",
       "module_parameters": {
         "experiment_notes_launch_editor": true,

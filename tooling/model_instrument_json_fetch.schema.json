@@ -1,0 +1,46 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "instrument_json_source_root": {
+      "default": "C:/Users/ScanImage/Documents/GitHub/slap2_processing",
+      "description": "Directory to search for instrument.json (the most recently modified match is selected).",
+      "title": "Instrument Json Source Root",
+      "type": "string"
+    },
+    "instrument_json_source_path": {
+      "anyOf": [
+        { "type": "string" },
+        { "type": "null" }
+      ],
+      "default": null,
+      "description": "Optional explicit path to an instrument.json file (skips auto-search).",
+      "title": "Instrument Json Source Path"
+    },
+    "instrument_json_filename": {
+      "default": "instrument.json",
+      "description": "Filename to search for under instrument_json_source_root.",
+      "title": "Instrument Json Filename",
+      "type": "string"
+    },
+    "instrument_json_recursive": {
+      "default": true,
+      "description": "If true, search instrument_json_source_root recursively.",
+      "title": "Instrument Json Recursive",
+      "type": "boolean"
+    },
+    "instrument_json_destination_name": {
+      "default": "instrument.json",
+      "description": "Destination filename to write into the session root.",
+      "title": "Instrument Json Destination Name",
+      "type": "string"
+    },
+    "instrument_json_required": {
+      "default": true,
+      "description": "If true, fail pre-acquisition when an instrument.json cannot be selected/copied.",
+      "title": "Instrument Json Required",
+      "type": "boolean"
+    }
+  },
+  "title": "Parameters",
+  "type": "object"
+}
