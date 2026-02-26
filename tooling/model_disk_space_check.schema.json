@@ -1,0 +1,44 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "required_free_gb": {
+      "description": "Minimum required free space (GiB).",
+      "examples": [
+        250
+      ],
+      "exclusiveMinimum": 0,
+      "title": "Required Free Gb",
+      "type": "number"
+    },
+    "disk_space_check_path": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Path to check. If omitted, the launcher uses output_session_folder.",
+      "examples": [
+        "{output_session_folder}"
+      ],
+      "title": "Disk Space Check Path"
+    },
+    "allow_override": {
+      "default": false,
+      "description": "If true, allow operator prompt to continue even if below threshold.",
+      "title": "Allow Override",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "required_free_gb"
+  ],
+  "title": "Module Parameters: disk_space_check (Pydantic)",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/tooling/model_disk_space_check.schema.json",
+  "description": "Generated from Pydantic model model_disk_space_check.py:Parameters. Check that the session volume has enough free space before starting acquisition."
+}

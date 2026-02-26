@@ -9,8 +9,12 @@
     },
     "instrument_json_source_path": {
       "anyOf": [
-        { "type": "string" },
-        { "type": "null" }
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
       ],
       "default": null,
       "description": "Optional explicit path to an instrument.json file (skips auto-search).",
@@ -41,6 +45,9 @@
       "type": "boolean"
     }
   },
-  "title": "Parameters",
-  "type": "object"
+  "title": "Module Parameters: instrument_json_fetch (Pydantic)",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openscope-params/tooling/model_instrument_json_fetch.schema.json",
+  "description": "Generated from Pydantic model model_instrument_json_fetch.py:Parameters. Module parameters schema generated from Pydantic."
 }

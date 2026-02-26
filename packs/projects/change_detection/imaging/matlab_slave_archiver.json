@@ -27,6 +27,13 @@
         "experiment_notes_launch_editor": true,
         "experiment_notes_filename": "{output_session_folder}\\notes\\experiment_notes.txt"
       }
+    },
+    {
+      "module_type": "launcher_module",
+      "module_path": "disk_space_check",
+      "module_parameters": {
+        "required_free_gb": 1000
+      }
     }
   ],
   "post_acquisition_pipeline": [

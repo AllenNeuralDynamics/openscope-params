@@ -32,22 +32,30 @@
     },
     {
       "module_type": "launcher_module",
+      "module_path": "disk_space_check",
+      "module_parameters": {
+        "required_free_gb": 10
+      }
+    },
+    {
+      "module_type": "launcher_module",
       "module_path": "wait_for_user_input",
       "module_parameters": {
         "prompt": "Pause before launching Bonsai. Verify rig is ready, then press Enter."
       }
-    }],
-    "post_acquisition_pipeline": [
-      {
-        "module_type": "launcher_module",
-        "module_path": "behavior_videos_flatten",
-        "module_parameters": {
-          "output_session_folder": "{output_session_folder}",
-          "behavior_videos_root": "behavior-videos",
-          "behavior_videos_prune_empty": true,
-          "behavior_videos_copy_only": false
-        }
-      },
+    }
+  ],
+  "post_acquisition_pipeline": [
+    {
+      "module_type": "launcher_module",
+      "module_path": "behavior_videos_flatten",
+      "module_parameters": {
+        "output_session_folder": "{output_session_folder}",
+        "behavior_videos_root": "behavior-videos",
+        "behavior_videos_prune_empty": true,
+        "behavior_videos_copy_only": false
+      }
+    },
     {
       "module_type": "launcher_module",
       "module_path": "session_archiver",

@@ -21,7 +21,7 @@
     "ValveOpenTime": 80,
     "DueTime": "00:30:00"
   },
-   "pre_acquisition_pipeline": [
+  "pre_acquisition_pipeline": [
     {
       "module_type": "launcher_module",
       "module_path": "experiment_notes_editor",
@@ -45,6 +45,13 @@
         "metadata_project_name": "Ophys Platform - SLAP2",
         "metadata_project_path": "{output_session_folder}\\project.json",
         "protocol_id": 2415
+      }
+    },
+    {
+      "module_type": "launcher_module",
+      "module_path": "disk_space_check",
+      "module_parameters": {
+        "required_free_gb": 10
       }
     },
     {

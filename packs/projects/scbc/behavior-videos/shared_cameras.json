@@ -34,6 +34,13 @@
     },
     {
       "module_type": "launcher_module",
+      "module_path": "disk_space_check",
+      "module_parameters": {
+        "required_free_gb": 10
+      }
+    },
+    {
+      "module_type": "launcher_module",
       "module_path": "wait_for_user_input",
       "module_parameters": {
         "prompt": "Pause before launching Bonsai. Verify rig is ready, then press Enter."
