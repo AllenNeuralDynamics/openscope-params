@@ -63,6 +63,7 @@
     {
       "module_type": "launcher_module",
       "module_path": "disk_space_check",
+      "on_failure": "abort",
       "module_parameters": {
         "required_free_gb": 10
       }
