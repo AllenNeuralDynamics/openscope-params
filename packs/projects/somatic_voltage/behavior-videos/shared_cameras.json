@@ -1,0 +1,54 @@
+{
+  "$schema": "https://raw.githubusercontent.com/AllenNeuralDynamics/openscope-params/main/tooling/model_launcher.schema.json",
+  "launcher_version": ">=0.2.7",
+  "launcher": "bonsai",
+  "protocol_id": 2415,
+  "repository_url": "https://github.com/AllenNeuralDynamics/ophys-passive-visual-stim.git",
+  "repository_commit_hash": "main",
+  "local_repository_path": "C:/BonsaiData/scbc/behavior-videos/Code",
+  "script_path": "src/SpinnakerTriggeredCapture.bonsai",
+  "bonsai_exe_path": "bonsai/Bonsai.exe",
+  "bonsai_setup_script": "bonsai/setup.cmd",
+  "output_root_folder": "C:/BonsaiData/scbc/behavior-videos/session_data",
+  "session_sync_role": "slave",
+  "session_sync_port": 50001,
+  "session_sync_master_host": "10.128.53.175",
+  "modality": "behavior-videos",
+  "script_parameters": {
+    "ExposureTimeBody": 10000,
+    "ExposureTimeFace": 20000,
+    "ExposureTimeEye": 20000,
+    "FrameRateBody": 30,
+    "FrameRateFace": 30,
+    "FrameRateEye": 30,
+    "SessionPathOverride": "{output_session_folder}"
+  },
+  "pre_acquisition_pipeline": [
+    {
+      "module_type": "launcher_module",
+      "module_path": "metadata_subject_fetch",
+      "module_parameters": {
+        "metadata_subject_id": "{subject_id}",
+        "metadata_subject_path": "{output_session_folder}\\subject.json"
+      }
+    },
+    {
+      "module_type": "launcher_module",
+      "module_path": "wait_for_user_input",
+      "module_parameters": {
+        "prompt": "Pause before launching Bonsai. Verify rig is ready, then press Enter."
+      }
+    }
+  ],
+  "post_acquisition_pipeline": [
+    {
+      "module_type": "launcher_module",
+      "module_path": "session_archiver",
+      "module_parameters": {
+        "session_dir": "{output_session_folder}",
+        "network_dir": "\\\\allen\\aind\\scratch\\ophys\\Maedeh\\Revolt_iGlu\\{subject_id}\\{session_uuid}\\slap2\\behavior_videos",
+        "backup_dir": "C:\\BonsaiData\\archive\\{subject_id}\\{session_uuid}\\{modality}"
+      }
+    }
+  ]
+}
