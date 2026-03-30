@@ -4,7 +4,7 @@
   "launcher": "bonsai",
   "protocol_id": 2415,
   "repository_url": "https://github.com/AllenNeuralDynamics/Aind.Behavior.ChangeDetection.git",
-  "repository_commit_hash": "0cf01096e6f986151c3d2bef8aba5305f77acf62",
+  "repository_commit_hash": "e582aaff516e88c5281da0e403555c1ec23fee2f",
   "local_repository_path": "C:/BonsaiDataDoC/Code",
   "script_path": "src/DetectionOfChange_with_template_and_mpe_comp.bonsai",
   "bonsai_exe_path": "bonsai/Bonsai.exe",
@@ -19,7 +19,7 @@
     "PortName": "{rig_param:COM_port}",
     "Subject": "{subject_id}",
     "ValveOpenTime": 80,
-    "DueTime": "00:05:00"
+    "DueTime": "00:30:00"
   },
   "pre_acquisition_pipeline": [
     {
