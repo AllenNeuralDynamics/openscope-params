@@ -4,7 +4,7 @@
   "launcher": "bonsai",
   "protocol_id": 2415,
   "repository_url": "https://github.com/AllenNeuralDynamics/ophys-passive-visual-stim.git",
-  "repository_commit_hash": "eebcdc2dd4d9a9ef9cc3119a37c22492626ef828",
+  "repository_commit_hash": "7575df821c5163491c24f083fd7c7f345fa92ebf",
   "local_repository_path": "C:/BonsaiDataPredictiveProcessing/Code",
   "script_path": "src/Mindscope/generic_oddball_slap2.bonsai",
   "bonsai_exe_path": "bonsai/Bonsai.exe",
@@ -20,7 +20,7 @@
     "Subject": "{subject_id}",
     "DisplayDeviceIndex": "{rig_param:DisplayDeviceIndex}",
     "WindowStateIndex": "{rig_param:WindowStateIndex}",
-    "stimulus_table_duration": "00:35:00"
+    "stimulus_table_duration": "00:35:30"
   },
   "pre_acquisition_pipeline": [
     {
