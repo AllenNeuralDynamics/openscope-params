@@ -5,7 +5,7 @@
   "bonsai_acceptable_exit_codes": [3762504530],
   "protocol_id": 2415,
   "repository_url": "https://github.com/AllenNeuralDynamics/ophys-passive-visual-stim.git",
-  "repository_commit_hash": "6242193b92757f04cf4dd631af19355ebb76ea5f",
+  "repository_commit_hash": "f38e32deb5b9c2f5b4f390210c1569ffe31b642a",
   "local_repository_path": "C:/BonsaiDataPredictiveProcessing/Code",
   "script_path": "src/Mindscope/generic_oddball_slap2.bonsai",
   "bonsai_exe_path": "bonsai/Bonsai.exe",
@@ -16,12 +16,12 @@
   "session_sync_expected_slaves": 2,
   "session_sync_bind_host": "0.0.0.0",
   "script_parameters": {
-    "stimulus_table_path": "{output_session_folder}\\zebra_only_test_session.csv",
+    "stimulus_table_path": "{output_session_folder}\\zebra_only_2rep_session.csv",
     "PortName": "{rig_param:COM_port}",
     "Subject": "{subject_id}",
     "DisplayDeviceIndex": "{rig_param:DisplayDeviceIndex}",
     "WindowStateIndex": "{rig_param:WindowStateIndex}",
-    "stimulus_table_duration": "00:20:00"
+    "stimulus_table_duration": "00:12:00"
   },
   "pre_acquisition_pipeline": [
     {
@@ -30,9 +30,9 @@
       "module_parameters": {
         "function": "generate_single_session_csv",
         "function_args": {
-          "session_type": "zebra_only_test",
+          "session_type": "zebra_only_2rep",
           "seed": 42,
-          "output_path": "{output_session_folder}\\zebra_only_test_session.csv"
+          "output_path": "{output_session_folder}\\zebra_only_2rep_session.csv"
         }
       }
     },
@@ -89,7 +89,7 @@
       "module_path": "slap2_stimuli_p3_annotator",
       "module_parameters": {
         "manifest_path": "{output_session_folder}\\launcher_metadata\\routing_manifest.json",
-        "stimulus_csv_names": ["zebra_only_test_session.csv"]
+        "stimulus_csv_names": ["zebra_only_2rep_session.csv"]
       }
     },
     {
