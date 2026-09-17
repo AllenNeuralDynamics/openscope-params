@@ -13,7 +13,7 @@
   "output_root_folder": "C:/BonsaiDataPredictiveProcessing",
   "session_sync_role": "master",
   "session_sync_port": 50001,
-  "session_sync_expected_slaves": 1,
+  "session_sync_expected_slaves": 2,
   "session_sync_bind_host": "0.0.0.0",
   "script_parameters": {
     "stimulus_table_path": "{output_session_folder}\\zebra_only_2rep_session.csv",
