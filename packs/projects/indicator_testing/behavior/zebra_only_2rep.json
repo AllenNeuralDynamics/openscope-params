@@ -21,7 +21,7 @@
     "Subject": "{subject_id}",
     "DisplayDeviceIndex": "{rig_param:DisplayDeviceIndex}",
     "WindowStateIndex": "{rig_param:WindowStateIndex}",
-    "stimulus_table_duration": "00:12:00"
+    "stimulus_table_duration": "01:00:00"
   },
   "pre_acquisition_pipeline": [
     {
