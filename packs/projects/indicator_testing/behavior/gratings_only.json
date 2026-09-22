@@ -16,12 +16,12 @@
   "session_sync_expected_slaves": 2,
   "session_sync_bind_host": "0.0.0.0",
   "script_parameters": {
-    "stimulus_table_path": "{output_session_folder}\\gratings_zebra_session.csv",
+    "stimulus_table_path": "{output_session_folder}\\gratings_only_session.csv",
     "PortName": "{rig_param:COM_port}",
     "Subject": "{subject_id}",
     "DisplayDeviceIndex": "{rig_param:DisplayDeviceIndex}",
     "WindowStateIndex": "{rig_param:WindowStateIndex}",
-    "stimulus_table_duration": "00:11:30"
+    "stimulus_table_duration": "00:05:00"
   },
   "pre_acquisition_pipeline": [
     {
@@ -30,9 +30,12 @@
       "module_parameters": {
         "function": "generate_single_session_csv",
         "function_args": {
-          "session_type": "gratings_and_zebra",
+          "session_type": "gratings_only",
           "seed": 42,
-          "output_path": "{output_session_folder}\\gratings_zebra_session.csv"
+          "output_path": "{output_session_folder}\\gratings_only_session.csv",
+          "stim_duration_s": 0.343,
+          "isi_duration_s": 0.343,
+          "session_duration_minutes": 5.0
         }
       }
     },
@@ -82,6 +85,14 @@
       "module_parameters": {
         "manifest_path": "{output_session_folder}\\launcher_metadata\\routing_manifest.json",
         "device_name": "VCO1_Behavior"
+      }
+    },
+    {
+      "module_type": "launcher_module",
+      "module_path": "slap2_stimuli_p3_annotator",
+      "module_parameters": {
+        "manifest_path": "{output_session_folder}\\launcher_metadata\\routing_manifest.json",
+        "stimulus_csv_names": ["gratings_only_session.csv"]
       }
     },
     {
