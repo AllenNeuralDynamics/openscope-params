@@ -3,6 +3,7 @@
   "launcher_version": ">=0.2.7",
   "launcher": "bonsai",
   "protocol_id": 2415,
+  "stimulus_short_name": "drifting_gratings",
   "repository_url": "https://github.com/AllenNeuralDynamics/ophys-passive-visual-stim.git",
   "repository_commit_hash": "main",
   "local_repository_path": "C:/BonsaiData/scbc/behavior/Code",

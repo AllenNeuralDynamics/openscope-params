@@ -3,6 +3,7 @@
   "launcher_version": ">=0.2.7",
   "launcher": "bonsai",
   "protocol_id": 2415,
+  "stimulus_short_name": "drifting_gratings",
   "repository_url": "https://github.com/AllenNeuralDynamics/openscope-community-predictive-processing.git",
   "repository_commit_hash": "c0d146fe17dea846e7e6b7e548050693fae87f36",
   "local_repository_path": "C:/BonsaiDataPredictiveProcessing/Code",

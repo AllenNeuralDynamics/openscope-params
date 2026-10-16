@@ -3,6 +3,7 @@
   "launcher_version": ">=0.2.7",
   "launcher": "bonsai",
   "protocol_id": 2415,
+  "stimulus_short_name": "natural_images",
   "repository_url": "https://github.com/AllenNeuralDynamics/Aind.Behavior.ChangeDetection.git",
   "repository_commit_hash": "e582aaff516e88c5281da0e403555c1ec23fee2f",
   "local_repository_path": "C:/BonsaiDataDoC/Code",
