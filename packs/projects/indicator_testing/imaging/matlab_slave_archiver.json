@@ -6,8 +6,13 @@
   "output_root_folder": "F:/slap2Data",
   "matlab_engine_name": "slap2_launcher",
   "matlab_entrypoint": "slap2_launcher",
+  "repository_url": "https://github.com/AllenNeuralDynamics/GIAnT-MATLAB.git",
+  "repository_commit_hash": "d47360693a1d15bc7b4d8236a5a1204d682d9a9c",
+  "local_repository_path": "C:/OpenScopeRepositories",
   "script_parameters": {
-    "rig_description_path": "C:/Users/ScanImage/Documents/slap2/configuration.json"
+    "rig_description_path": "C:/Users/ScanImage/Documents/slap2/configuration.json",
+    "post_acquisition_annotation": true,
+    "giant_path": "{local_repository_path}/GIAnT-MATLAB"
   },
   "session_sync_role": "slave",
   "session_sync_port": 50001,
