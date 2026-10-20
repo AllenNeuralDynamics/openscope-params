@@ -4,7 +4,7 @@
   "launcher": "bonsai",
   "protocol_id": 2415,
   "repository_url": "https://github.com/AllenNeuralDynamics/ophys-passive-visual-stim.git",
-  "repository_commit_hash": "0bcc7dc31cfeaab8d3416ecff36dfc6a64a09a1d",
+  "repository_commit_hash": "6bf3318e7ad352485a905a9ffea5cfaea3806885",
   "local_repository_path": "C:/BonsaiDataPredictiveProcessing/Code",
   "script_path": "src/SpinnakerTriggeredCapture.bonsai",
   "bonsai_exe_path": "bonsai/Bonsai.exe",
