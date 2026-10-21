@@ -5,12 +5,12 @@
   "bonsai_acceptable_exit_codes": [3762504530],
   "protocol_id": 2415,
   "repository_url": "https://github.com/AllenNeuralDynamics/ophys-passive-visual-stim.git",
-  "repository_commit_hash": "b4b24cbd03f5e0bccfd2e9465c219ccd24b98f55",
-  "local_repository_path": "C:/BonsaiDataPredictiveProcessing/Code",
+  "repository_commit_hash": "132bc59915faeb1ed44d4d425823bb8e5ca17a34",
+  "local_repository_path": "C:/projects/indicator_testing/codes/behavior",
   "script_path": "src/Mindscope/generic_oddball_slap2.bonsai",
   "bonsai_exe_path": "bonsai/Bonsai.exe",
   "bonsai_setup_script": "bonsai/setup.cmd",
-  "output_root_folder": "C:/BonsaiDataPredictiveProcessing",
+  "output_root_folder": "C:/projects/indicator_testing/data/behavior/session_data",
   "session_sync_role": "master",
   "session_sync_port": 50001,
   "session_sync_expected_slaves": 2,
@@ -110,7 +110,7 @@
       "module_parameters": {
         "session_dir": "{output_session_folder}",
         "network_dir": "\\\\allen\\aind\\scratch\\ophys\\Maedeh\\VADER\\{subject_id}\\{session_uuid}\\behavior",
-        "backup_dir": "C:\\BonsaiDataPredictiveProcessing\\Archive\\{subject_id}\\{session_uuid}\\behavior",
+        "backup_dir": "C:\\projects\\indicator_testing\\data\\Archive\\{subject_id}\\{session_uuid}\\behavior",
         "routing_manifest": "{output_session_folder}\\launcher_metadata\\routing_manifest.json"
       }
     }
