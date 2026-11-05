@@ -6,8 +6,13 @@
   "output_root_folder": "F:/slap2Data",
   "matlab_engine_name": "slap2_launcher",
   "matlab_entrypoint": "slap2_launcher",
+  "repository_url": "https://github.com/AllenNeuralDynamics/GIAnT-MATLAB.git",
+  "repository_commit_hash": "3b51f589a22cedc1ffaf2ca24b52513c9270169f",
+  "local_repository_path": "C:/OpenScopeRepositories",
   "script_parameters": {
-    "rig_description_path": "C:/Users/ScanImage/Documents/slap2/configuration.json"
+    "rig_description_path": "C:/Users/ScanImage/Documents/slap2/configuration.json",
+    "post_acquisition_annotation": true,
+    "giant_path": "{local_repository_path}/GIAnT-MATLAB"
   },
   "session_sync_role": "slave",
   "session_sync_port": 50001,
@@ -40,19 +45,20 @@
   "post_acquisition_pipeline": [
     {
       "module_type": "launcher_module",
-      "module_path": "slap2_meta_annotator",
+      "module_path": "experiment_notes_finalize",
       "module_parameters": {
-        "source_dir": "{output_session_folder}",
+        "experiment_notes_filename": "{output_session_folder}\\notes\\experiment_notes.txt",
+        "experiment_notes_confirm_prompt": "Save the experiment notes and close their Notepad tab/window, then press Enter to continue to the metadata editor.",
         "manifest_path": "{output_session_folder}\\launcher_metadata\\routing_manifest.json"
       }
     },
     {
       "module_type": "launcher_module",
-      "module_path": "experiment_notes_finalize",
+      "module_path": "slap2_meta_annotator",
       "module_parameters": {
-        "experiment_notes_filename": "{output_session_folder}\\notes\\experiment_notes.txt",
-        "experiment_notes_confirm_prompt": "Confirm experiment notes are saved; press Enter to finish.",
-        "manifest_path": "{output_session_folder}\\launcher_metadata\\routing_manifest.json"
+        "source_dir": "{output_session_folder}",
+        "manifest_path": "{output_session_folder}\\launcher_metadata\\routing_manifest.json",
+        "experiment_notes_filename": "{output_session_folder}\\notes\\experiment_notes.txt"
       }
     },
     {
