@@ -17,6 +17,9 @@
     "ExposureTimeBody": 10000,
     "ExposureTimeFace": 20000,
     "ExposureTimeEye": 20000,
+    "GainBody": 0,
+    "GainFace": 0,
+    "GainEye": 15,
     "FrameRateBody": 30,
     "FrameRateFace": 30,
     "FrameRateEye": 30
